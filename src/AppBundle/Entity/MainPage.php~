@@ -1,0 +1,55 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="mainpage")
+ */
+class MainPage {
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $content;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $news;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $articles;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $footer;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $header;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $contacts;
+
+} 

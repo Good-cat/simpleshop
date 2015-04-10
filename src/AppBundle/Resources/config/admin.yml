@@ -1,0 +1,11 @@
+services:
+    sonata.admin.mainpage:
+        class: AppBundle\Admin\MainPageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Настройки содержимого", label: "Главная страница" }
+        arguments:
+            - ~
+            - AppBundle\Entity\MainPage
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]

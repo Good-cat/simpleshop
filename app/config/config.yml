@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: @AppBundle/Resources/config/admin.yml }
 
 framework:
     #esi:             ~
@@ -78,6 +79,7 @@ sonata_admin:
     title:  "Имя сайта"
     templates:
         layout:                         ApplicationSonataAdminBundle::standard_layout.html.twig
+        edit:                           ApplicationSonataAdminBundle:CRUD:edit.html.twig
 
 
 sonata_block:
@@ -86,6 +88,7 @@ sonata_block:
     # Enable the SonataAdminBundle block
     sonata.admin.block.admin_list:
       contexts:  [admin]
+    sonata.admin.block.search_result:
     sonata.user.block.menu:  # used to display the menu in profile pages
     sonata.user.block.account: # used to display menu option (login option)
     sonata.block.service.text: # used to if you plan to use Sonata user routes
