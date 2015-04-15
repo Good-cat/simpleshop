@@ -113,3 +113,37 @@ fos_user:
 
   service:
     user_manager: sonata.user.orm.user_manager
+
+
+stfalcon_tinymce:
+  theme:
+    simple:
+      relative_urls: false
+      image_advtab: true
+      file_browser_callback : elFinderBrowser
+      plugins:
+       - "advlist autolink lists link image charmap print preview hr anchor pagebreak"
+       - "searchreplace wordcount visualblocks visualchars code fullscreen"
+       - "insertdatetime media nonbreaking save table contextmenu directionality"
+       - "emoticons template paste textcolor"
+      toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+      toolbar2: "print preview media | forecolor backcolor emoticons | stfalcon | example"
+
+fm_elfinder:
+    instances:
+        default:
+            locale: %locale% # defaults to current request locale
+            editor: tinymce4 # other options are tinymce, tinymce4, form, custom and simple
+            fullscreen: true # defaults true, applies to simple and ckeditor editors
+            theme: smoothness # jquery theme
+            include_assets: true # disable if you want to handle loading of the javascript and css assets yourself
+            connector:
+                debug: false # defaults to false
+                roots:       # at least one root must be defined
+                    uploads:
+                        show_hidden: false # defaults to false
+                        driver: LocalFileSystem
+                        path: uploads
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 2M

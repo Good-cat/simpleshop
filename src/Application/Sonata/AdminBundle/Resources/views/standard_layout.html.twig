@@ -35,6 +35,10 @@ file that was distributed with this source code.
                         <link rel="stylesheet" href="{{ asset(stylesheet) }}">
                 {% endfor %}
             {% endif %}
+
+            <link rel="stylesheet" href="{{ asset('bundles/app/js/library/sir-trevor-js-master/sir-trevor.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/app/js/library/sir-trevor-js-master/sir-trevor-icons.css') }}">
+
         {% endblock %}
 
         {% block javascripts %}
@@ -70,6 +74,9 @@ file that was distributed with this source code.
                     <script src="{{ asset('bundles/sonatacore/vendor/select2/select2_locale_' ~ locale|replace({'_':'-'}) ~ '.js') }}"></script>
                 {% endif %}
             {% endif %}
+
+            {{ elfinder_tinymce_init4('default') }}
+            {{ tinymce_init() }}
 
         {% endblock %}
 

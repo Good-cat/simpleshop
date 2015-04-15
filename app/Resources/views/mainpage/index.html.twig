@@ -1,7 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ mainpage.getTitle }}
-    {{ mainpage.getHeader }}
-    {{ mainpage.getContent }}
+
+    <div>
+        {{ mainpage.getTitle }}
+    </div>
+
+    <div>
+        {{ mainpage.getHeader }}
+    </div>
+
+    <div>
+        {{ mainpage.getContacts|raw() }}
+    </div>
+
+    <div>
+        {{ mainpage.getContent|raw() }}
+    </div>
+
+    <div>
+        {{ mainpage.getFooter }}
+    </div>
+
+    {% if mainpage.hasNews %}
+        <div>
+            Новости отображаются
+        </div>
+    {% endif %}
+
+    {% if mainpage.hasArticles %}
+        <div>
+            Статьи отображаются
+        </div>
+    {% endif %}
+
 {% endblock %}

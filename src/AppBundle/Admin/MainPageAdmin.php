@@ -22,9 +22,27 @@ class MainPageAdmin extends Admin{
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title', 'text', array('label' => 'Название'))
-            ->add('content', null, array('label' => 'Содержание'))
-            ->add('header', 'text', array('label' => 'Шапка')) //if no type is specified, SonataAdminBundle tries to guess it
+
+            ->tab('Общие')
+                ->with('Содержание страницы')
+                    ->add('title', 'text', array('label' => 'Название'))
+                    ->add('header', 'text', array('label' => 'Шапка', 'required' => false))
+                    ->add('contacts', null, array('label' => 'Контакты'))
+                    ->add('content', 'textarea', array('label' => 'Содержание', 'attr'=>array('class' => 'tinymce')))
+                    ->add('footer', 'text', array('label' => 'Футер', 'required' => false))
+                ->end()
+                ->with('Отображение блоков')
+                    ->add('news', null, array('label' => 'Отображать новости', 'required' => false))
+                    ->add('articles', null, array('label' => 'Отображать статьи', 'required' => false))
+                    ->add('actions', null, array('label' => 'Отображать акции', 'required' => false))
+                ->end()
+            ->end()
+            ->tab('SEO')
+                ->with('Параметры для продвижения')
+                    ->add('keywords', null, array('label' => 'Ключевые слова', 'required' => false))
+                    ->add('description', null, array('label' => 'Описание страницы', 'required' => false))
+                ->end()
+            ->end()
         ;
     }
 
@@ -32,8 +50,8 @@ class MainPageAdmin extends Admin{
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('title')
-            ->add('content')
+            ->add('title', null, array('label' => 'Название'))
+            ->add('content', null, array('label' => 'Содержание'))
         ;
     }
 
@@ -42,7 +60,9 @@ class MainPageAdmin extends Admin{
     {
         $listMapper
             ->addIdentifier('title', null, array('label' => 'Название'))
-            ->add('content', null, array('label' => 'Название'))
+            ->add('news', null, array('label' => 'Отображать новости', 'editable' => true))
+            ->add('articles', null, array('label' => 'Отображать статьи', 'editable' => true))
+            ->add('actions', null, array('label' => 'Отображать акции', 'editable' => true))
         ;
     }
 

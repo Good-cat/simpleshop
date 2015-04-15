@@ -52,6 +52,21 @@ class MainPage {
      */
     private $contacts;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $keywords;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $actions;
+
 
     /**
      * Get id
@@ -127,9 +142,14 @@ class MainPage {
      *
      * @return boolean 
      */
-    public function hasNews()
+    public function getNews()
     {
         return $this->news;
+    }
+
+    public function hasNews()
+    {
+        return $this->getNews();
     }
 
     /**
@@ -150,9 +170,14 @@ class MainPage {
      *
      * @return boolean 
      */
-    public function hasArticles()
+    public function getArticles()
     {
         return $this->articles;
+    }
+
+    public function hasArticles()
+    {
+        return $this->getArticles();
     }
 
     /**
@@ -227,5 +252,74 @@ class MainPage {
     public function __toString()
     {
         return "Главная страница";
+    }
+
+    /**
+     * Set keywords
+     *
+     * @param string $keywords
+     * @return MainPage
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+
+        return $this;
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return string 
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return MainPage
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set actions
+     *
+     * @param boolean $actions
+     * @return MainPage
+     */
+    public function setActions($actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
+    /**
+     * Get actions
+     *
+     * @return boolean 
+     */
+    public function getActions()
+    {
+        return $this->actions;
     }
 }
