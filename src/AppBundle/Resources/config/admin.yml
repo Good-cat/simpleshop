@@ -8,4 +8,26 @@ services:
             - AppBundle\Entity\MainPage
             - ~
         calls:
-            - [ setTranslationDomain, [AppBundle]]
+            - [ setTranslationDomain, [SonataAdminBundle]]
+
+    sonata.admin.service_group:
+        class: AppBundle\Admin\ServiceGroupAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Услуги", label: "Группы услуг" }
+        arguments:
+            - ~
+            - AppBundle\Entity\ServiceGroup
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]
+
+    sonata.admin.service:
+        class: AppBundle\Admin\ServiceAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Услуги", label: "Услуги" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Service
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]

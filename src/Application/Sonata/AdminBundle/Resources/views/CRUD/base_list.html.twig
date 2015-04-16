@@ -11,6 +11,14 @@ file that was distributed with this source code.
 
 {% extends base_template %}
 
+{% block title %}
+{{ (admin.breadcrumbs(action)|last().label)|trans({}, 'SonataAdminBundle') }}
+{% endblock%}
+
+{% block navbar_title %}
+    {{ block('title') }}
+{% endblock %}
+
 {% block actions %}
 {% spaceless %}
     {% if admin.hasRoute('create') and admin.isGranted('CREATE')%}

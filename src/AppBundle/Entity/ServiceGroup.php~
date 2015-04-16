@@ -1,0 +1,47 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: itm
+ * Date: 15.04.15
+ * Time: 16:20
+ */
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="service_group")
+ */
+class ServiceGroup {
+
+    public function __construct()
+    {
+        $this->services = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Service", mappedBy="serviceGroup")
+     */
+    private $services;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $visible;
+
+} 

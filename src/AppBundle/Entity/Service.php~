@@ -1,0 +1,59 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: itm
+ * Date: 15.04.15
+ * Time: 16:26
+ */
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="service")
+ */
+class Service {
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ServiceGroup", inversedBy="services")
+     * @ORM\JoinColumn(name="service_group_id", referencedColumnName="id")
+     */
+    private $serviceGroup;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $annotation;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $visible;
+
+//    private $articles;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $update_at;
+
+} 

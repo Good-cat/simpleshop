@@ -253,4 +253,73 @@ class MainPage {
     {
         return "Главная страница";
     }
+
+    /**
+     * Set keywords
+     *
+     * @param string $keywords
+     * @return MainPage
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+
+        return $this;
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return string 
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return MainPage
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set actions
+     *
+     * @param boolean $actions
+     * @return MainPage
+     */
+    public function setActions($actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
+    /**
+     * Get actions
+     *
+     * @return boolean 
+     */
+    public function getActions()
+    {
+        return $this->actions;
+    }
 }

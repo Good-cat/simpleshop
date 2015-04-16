@@ -27,7 +27,7 @@ class MainPageAdmin extends Admin{
                 ->with('Содержание страницы')
                     ->add('title', 'text', array('label' => 'Название'))
                     ->add('header', 'text', array('label' => 'Шапка', 'required' => false))
-                    ->add('contacts', null, array('label' => 'Контакты'))
+                    ->add('contacts', null, array('label' => 'Контакты', 'attr'=>array('class' => 'tinymce')))
                     ->add('content', 'textarea', array('label' => 'Содержание', 'attr'=>array('class' => 'tinymce')))
                     ->add('footer', 'text', array('label' => 'Футер', 'required' => false))
                 ->end()
