@@ -31,3 +31,14 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [SonataAdminBundle]]
+
+    sonata.admin.contacts:
+        class: AppBundle\Admin\ContactsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Настройки содержимого", label: "Контакты" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Contacts
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]

@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    {{ contacts.getMapCode()|replace({'%baloon%': contacts.getPhones()})|raw() }}
+{% endblock javascripts %}
+{% block body %}
+    {{ contacts.getPhones()|raw() }}
+    <div id="map" style="width: 600px; height: 400px"></div>
+{% endblock body %}

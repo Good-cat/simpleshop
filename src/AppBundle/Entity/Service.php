@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="service")
+ * @ORM\Table(name="contacts")
  */
 class Service {
 
@@ -212,6 +212,5 @@ class Service {
         } else {
             return 'Услуга';
         }
-
     }
 }
