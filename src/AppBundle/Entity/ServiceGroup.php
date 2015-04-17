@@ -35,7 +35,7 @@ class ServiceGroup {
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Service", mappedBy="serviceGroup")
+     * @ORM\OneToMany(targetEntity="Service", mappedBy="serviceGroup", orphanRemoval=true)
      */
     private $services;
 

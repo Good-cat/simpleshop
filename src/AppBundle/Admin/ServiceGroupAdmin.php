@@ -5,6 +5,7 @@ namespace AppBundle\Admin;
 use Knp\Menu\ItemInterface;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Admin\AdminInterface;
+use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -77,4 +78,23 @@ class ServiceGroupAdmin extends Admin{
 
     }
 
-} 
+    public function preRemove($serviceGroup)
+    {
+        if ($serviceGroup->getServices()->getValues()) {
+            throw new \Exception('Нельзя удалить группу, в которой есть услуги!');
+        }
+    }
+
+    public function preBatchAction($actionName, ProxyQueryInterface $query, array & $idx, $allElements)
+    {
+        if ($actionName == 'delete') {
+            $query
+                ->andWhere($query->expr()->in('o.id', '?1'))
+                ->setParameter(1, $idx);
+            $serviceGroups = $query->execute();
+            foreach ($serviceGroups as $serviceGroup) {
+                $this->preRemove($serviceGroup);
+            }
+        }
+    }
+}
