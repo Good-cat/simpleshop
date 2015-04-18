@@ -15,7 +15,7 @@ class ContactsAdmin extends Admin{
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->remove('create');
-        $collection->remove('delete');
+//        $collection->remove('delete');
     }
 
     // Fields to be shown on create/edit forms
@@ -30,8 +30,16 @@ class ContactsAdmin extends Admin{
                     ->add('skype', null, array('label' => 'Скайп', 'attr'=>array('class' => 'tinymce')))
                 ->end()
             ->end()
-            ->tab('Карта')
-                ->with('Код карты')
+            ->tab('Точка на карте')
+                ->with('Параметры точки')
+                    ->add('mapX', null, array('label' => 'Широта', 'required' => false))
+                    ->add('mapY', null, array('label' => 'Долгота', 'required' => false))
+                    ->add('mapPointHint', null, array('label' => 'Всплывающая подсказка', 'required' => false))
+                    ->add('mapPointInformation', null, array('label' => 'Информация по клику на точке', 'required' => false))
+                ->end()
+            ->end()
+            ->tab('Код карты')
+                ->with('Яндекс API')
                     ->add('mapCode', null, array('label' => 'Код Яндекс-карты', 'required' => false))
                 ->end()
             ->end()

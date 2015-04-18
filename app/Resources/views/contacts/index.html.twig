@@ -2,7 +2,12 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-    {{ contacts.getMapCode()|replace({'%baloon%': contacts.getPhones()})|raw() }}
+    {{ contacts.getMapCode()|replace({
+        '%x%': contacts.getMapX(),
+        '%y%': contacts.getMapY(),
+        '%hint%': contacts.getMapPointHint(),
+        '%info%': contacts.getMapPointInformation()
+    })|raw() }}
 {% endblock javascripts %}
 {% block body %}
     {{ contacts.getPhones()|raw() }}

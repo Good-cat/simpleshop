@@ -5,7 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="service")
+ * @ORM\Table(name="contacts")
  */
 class Contacts {
 
@@ -35,6 +35,33 @@ class Contacts {
      * @ORM\Column(type="text")
      */
     private $mapCode;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $mapX;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $mapY;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $mapPointHint;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $mapPointInformation;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $registrationData;
+
+
 
     /**
      * @ORM\Column(type="datetime")
@@ -170,5 +197,120 @@ class Contacts {
     public function getUpdateAt()
     {
         return $this->updateAt;
+    }
+
+    /**
+     * Set mapX
+     *
+     * @param string $mapX
+     * @return Contacts
+     */
+    public function setMapX($mapX)
+    {
+        $this->mapX = $mapX;
+
+        return $this;
+    }
+
+    /**
+     * Get mapX
+     *
+     * @return string 
+     */
+    public function getMapX()
+    {
+        return $this->mapX;
+    }
+
+    /**
+     * Set mapY
+     *
+     * @param string $mapY
+     * @return Contacts
+     */
+    public function setMapY($mapY)
+    {
+        $this->mapY = $mapY;
+
+        return $this;
+    }
+
+    /**
+     * Get mapY
+     *
+     * @return string 
+     */
+    public function getMapY()
+    {
+        return $this->mapY;
+    }
+
+    /**
+     * Set mapPointInformation
+     *
+     * @param string $mapPointInformation
+     * @return Contacts
+     */
+    public function setMapPointInformation($mapPointInformation)
+    {
+        $this->mapPointInformation = $mapPointInformation;
+
+        return $this;
+    }
+
+    /**
+     * Get mapPointInformation
+     *
+     * @return string 
+     */
+    public function getMapPointInformation()
+    {
+        return $this->mapPointInformation;
+    }
+
+    /**
+     * Set registrationData
+     *
+     * @param string $registrationData
+     * @return Contacts
+     */
+    public function setRegistrationData($registrationData)
+    {
+        $this->registrationData = $registrationData;
+
+        return $this;
+    }
+
+    /**
+     * Get registrationData
+     *
+     * @return string 
+     */
+    public function getRegistrationData()
+    {
+        return $this->registrationData;
+    }
+
+    /**
+     * Set mapPointHint
+     *
+     * @param string $mapPointHint
+     * @return Contacts
+     */
+    public function setMapPointHint($mapPointHint)
+    {
+        $this->mapPointHint = $mapPointHint;
+
+        return $this;
+    }
+
+    /**
+     * Get mapPointHint
+     *
+     * @return string 
+     */
+    public function getMapPointHint()
+    {
+        return $this->mapPointHint;
     }
 }
