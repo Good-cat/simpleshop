@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block description -%}
+    {{ mainpage.getDescription }}
+{%- endblock description %}
+
 {% block body %}
 
-    <div>
+    <div class="hero">
         {{ mainpage.getTitle }}
     </div>
 
