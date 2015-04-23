@@ -4,38 +4,61 @@
     {{ mainpage.getDescription }}
 {%- endblock description %}
 
+{% block title -%}
+    {{ mainpage.getTitle }}
+{%- endblock title %}
+
 {% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xl-8 ">
+                <div>
+                    {{ mainpage.getContent|raw() }}
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4">
+                {% if mainpage.hasActions %}
+                    <br/>
+                    <div id="b_u">
+                        <p style="color:#ececec;font-size:20px;font-weight:700;border-bottom:1px solid #494949;height: 40px;">АКЦИИ:</p>
+                        <p style="color:#afaeae;">Компьютерная диагностика</p>
+                        <p style="color:#afaeae;">Ремонт электрооборудования</p>
+                        <p style="color:#afaeae;">Установка доп. оборудования</p>
+                        <p style="color:#afaeae;">Помощь в приобретении запчастей</p>
+                        <p style="color:#afaeae;">Изготовление чип-ключей</p>
+                        <p style="color:#afaeae;">Консультации</p>
+                    </div>
+                    <br/>
+                {% endif %}
 
-    <div class="hero">
-        {{ mainpage.getTitle }}
-    </div>
+                {% if mainpage.hasNews %}
+                    <div id="b_u">
+                        <p style="color:#ececec;font-size:20px;font-weight:700;border-bottom:1px solid #494949;height: 40px;">НОВОСТИ:</p>
+                        <p style="color:#afaeae;">Компьютерная диагностика</p>
+                        <p style="color:#afaeae;">Ремонт электрооборудования</p>
+                        <p style="color:#afaeae;">Установка доп. оборудования</p>
+                        <p style="color:#afaeae;">Помощь в приобретении запчастей</p>
+                        <p style="color:#afaeae;">Изготовление чип-ключей</p>
+                        <p style="color:#afaeae;">Консультации</p>
+                    </div>
+                    <br/>
+                {% endif %}
 
-    <div>
-        {{ mainpage.getHeader }}
-    </div>
-
-    <div>
-        {{ mainpage.getContacts|raw() }}
-    </div>
-
-    <div>
-        {{ mainpage.getContent|raw() }}
-    </div>
-
-    <div>
-        {{ mainpage.getFooter }}
-    </div>
-
-    {% if mainpage.hasNews %}
-        <div>
-            Новости отображаются
+                {% if mainpage.hasArticles %}
+                    <div id="b_u">
+                        <p style="color:#ececec;font-size:20px;font-weight:700;border-bottom:1px solid #494949;height: 40px;">СТАТЬИ:</p>
+                        <p style="color:#afaeae;">Компьютерная диагностика</p>
+                        <p style="color:#afaeae;">Ремонт электрооборудования</p>
+                        <p style="color:#afaeae;">Установка доп. оборудования</p>
+                        <p style="color:#afaeae;">Помощь в приобретении запчастей</p>
+                        <p style="color:#afaeae;">Изготовление чип-ключей</p>
+                        <p style="color:#afaeae;">Консультации</p>
+                    </div>
+                {% endif %}
+            </div>
         </div>
-    {% endif %}
+    </div>
 
-    {% if mainpage.hasArticles %}
-        <div>
-            Статьи отображаются
-        </div>
-    {% endif %}
+
 
 {% endblock %}

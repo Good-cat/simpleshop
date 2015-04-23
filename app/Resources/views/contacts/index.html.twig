@@ -10,6 +10,13 @@
     })|raw() }}
 {% endblock javascripts %}
 {% block body %}
-    {{ contacts.getPhones()|raw() }}
-    <div id="map" style="width: 600px; height: 400px"></div>
+    <div class="container">
+        <h3>Телефоны:</h3>
+        {{ contacts.getPhones()|raw() }}
+        <h3>Электронная почта:<h3>
+        {{ contacts.getEmail()|raw() }}
+        <h3>Карта:</h3>
+        <div id="map" style="width: 600px; height: 400px"></div>
+        <h3>Схема проезда развязки:</h3>
+    </div>
 {% endblock body %}

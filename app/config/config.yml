@@ -76,7 +76,7 @@ swiftmailer:
     spool:     { type: memory }
 
 sonata_admin:
-    title:  "Имя сайта"
+    title:  "Carwest"
     dashboard: ~
     templates:
         layout:                         ApplicationSonataAdminBundle::standard_layout.html.twig

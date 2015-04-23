@@ -25,6 +25,25 @@ class MainPageController extends Controller
         return $this->render('mainpage/index.html.twig', array('mainpage' => $mainPage));
     }
 
+    public function getHeaderAction()
+    {
+        $mainPage = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:MainPage')
+            ->findOneById(1);
+
+        $serviceGroups = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:ServiceGroup')
+            ->findAll();
+
+        return $this->render('_navbar.html.twig', array(
+            'contacts' => $mainPage->getContacts(),
+            'headerText' => $mainPage->getHeader(),
+            'serviceGroups' => $serviceGroups
+        ));
+    }
+
     private function create()
     {
         $mainPage = new MainPage();

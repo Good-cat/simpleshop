@@ -322,4 +322,9 @@ class MainPage {
     {
         return $this->actions;
     }
+
+    public function hasActions()
+    {
+        return $this->getActions();
+    }
 }
