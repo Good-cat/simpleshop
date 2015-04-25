@@ -32,6 +32,12 @@ class ContactsController  extends Controller{
         $contacts->setEmail("Email");
         $contacts->setSkype("Skype");
         $contacts->setMapCode("");
+        $contacts->setMapPointHint("");
+        $contacts->setMapPointInformation("");
+        $contacts->setMapX("");
+        $contacts->setMapY("");
+        $contacts->setRegistrationData("");
+        $contacts->setSkype("");
 
         $contacts->setUpdateAt(new \DateTime());
 
