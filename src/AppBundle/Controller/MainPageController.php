@@ -56,6 +56,7 @@ class MainPageController extends Controller
         $mainPage->setHeader("Текст шапки (кроме постоянных значений)");
         $mainPage->setKeywords("");
         $mainPage->setDescription("");
+        $mainPage->setActions(true);
 
         $em = $this->getDoctrine()->getManager();
 
