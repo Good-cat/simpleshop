@@ -44,15 +44,17 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Сервис <b class="caret"></b></a>
                     <ul class="dropdown-menu" style="text-align: left; color: #FFFFFF; background-color: #000000;">
                         {% for serviceGroup in serviceGroups %}
-                            <li><a href="#">{{ serviceGroup.getName }}</a></li>
+                            <li><a href="{{ path('service_list', {'serviceGroupName': serviceGroup.getName}) }}">{{ serviceGroup.getName }}</a></li>
+                            {% if not loop.last %}
+                                <li class="divider"></li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 </li>
-                <li><a href="">Полезная информация</a></li>
-                <li><a href="">Вакансии</a></li>
+                {#<li><a href="">Полезная информация</a></li>#}
+                {#<li><a href="">Вакансии</a></li>#}
                 <li><a href="{{ path('contacts') }}">Контакты</a></li>
             </ul>
         </div>
-
     </div>
 </div>

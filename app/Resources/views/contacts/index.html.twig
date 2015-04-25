@@ -11,12 +11,18 @@
 {% endblock javascripts %}
 {% block body %}
     <div class="container">
-        <h3>Телефоны:</h3>
-        {{ contacts.getPhones()|raw() }}
-        <h3>Электронная почта:<h3>
-        {{ contacts.getEmail()|raw() }}
-        <h3>Карта:</h3>
-        <div id="map" style="width: 600px; height: 400px"></div>
-        <h3>Схема проезда развязки:</h3>
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 ">
+                <h3>Телефоны:</h3>
+                {{ contacts.getPhones()|raw() }}
+                <h3>Электронная почта:<h3>
+                        {{ contacts.getEmail()|raw() }}
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xl-7 ">
+                <h3>Карта:</h3>
+                <div id="map" style="width: 600px; height: 400px"></div>
+                <h3>Схема проезда развязки:</h3>
+            </div>
+        </div>
     </div>
 {% endblock body %}

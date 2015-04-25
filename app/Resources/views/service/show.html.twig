@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h2>
+            {{ service.getName }}
+        </h2>
+        <div class="service_annotation">
+            {{ service.getDescription|raw() }}
+        </div>
+    </div>
+{% endblock body %}

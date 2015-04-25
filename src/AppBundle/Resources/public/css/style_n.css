@@ -622,6 +622,6 @@ background-color: #1d1d1d;
 
 }
 
-.dropdown > li > a{
-    background-color: #FFFFFF;
+ul.dropdown-menu a{
+    color: #fff;
 }

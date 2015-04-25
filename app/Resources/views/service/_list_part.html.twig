@@ -1,0 +1,8 @@
+<div>
+    <h2>
+        {{ service.getName }}
+    </h2>
+    <div class="service_annotation">
+        {{ service.getAnnotation|raw() }} <a href="{{ path('service_show', {'serviceGroupName': service.serviceGroup.getName, 'serviceName': service.getName}) }}">подробнее...</a>
+    </div>
+</div>

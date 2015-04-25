@@ -35,7 +35,7 @@ class MainPageController extends Controller
         $serviceGroups = $this
             ->getDoctrine()
             ->getRepository('AppBundle:ServiceGroup')
-            ->findAll();
+            ->findByVisible(1);
 
         return $this->render('_navbar.html.twig', array(
             'contacts' => $mainPage->getContacts(),

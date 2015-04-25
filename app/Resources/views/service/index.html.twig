@@ -1,0 +1,8 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="container">
+        {% for service in serviceList %}
+            {% include ':service:_list_part.html.twig' with {'service': service} %}
+        {% endfor %}
+    </div>
+{% endblock body %}

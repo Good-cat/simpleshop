@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% set hasColumn = mainpage.hasActions or mainpage.hasNews or mainpage.hasArticles %}
+
 {% block description -%}
     {{ mainpage.getDescription }}
 {%- endblock description %}
@@ -11,11 +13,17 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xl-8 ">
+                {% if hasColumn %}
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xl-8 ">
+                {% else %}
+                    <div>
+                {% endif %}
                 <div>
+                    {{ hasColumn }}
                     {{ mainpage.getContent|raw() }}
                 </div>
             </div>
+            {% if hasColumn %}
             <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4">
                 {% if mainpage.hasActions %}
                     <br/>
@@ -56,6 +64,7 @@
                     </div>
                 {% endif %}
             </div>
+            {% endif %}
         </div>
     </div>
 
