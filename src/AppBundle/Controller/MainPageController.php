@@ -54,6 +54,8 @@ class MainPageController extends Controller
         $mainPage->setContacts("Контакты, отображаемые на главной странице");
         $mainPage->setFooter("Текст футера (кроме постоянных значений)");
         $mainPage->setHeader("Текст шапки (кроме постоянных значений)");
+        $mainPage->setKeywords("");
+        $mainPage->setDescription("");
 
         $em = $this->getDoctrine()->getManager();
 
