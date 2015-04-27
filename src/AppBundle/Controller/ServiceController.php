@@ -19,7 +19,7 @@ class ServiceController extends Controller{
      */
     public function listAction(ServiceGroup $serviceGroup)
     {
-        return $this->render('service/index.html.twig', array('serviceList' => $serviceGroup->getServices()));
+        return $this->render('service/index.html.twig', array('serviceGroup' => $serviceGroup));
     }
 
     /**

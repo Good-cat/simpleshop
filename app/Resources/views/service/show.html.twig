@@ -1,9 +1,17 @@
 {% extends '::base.html.twig' %}
+{% block title %}
+    Карвест. {{ service.serviceGroup }}. Услуги. {{ service.name }} в Минске.
+{% endblock title %}
+{% block breadcrumbs %}
+    <a href="{{ path('homepage') }}">Главная</a> /
+    <a href="{{ path('service_list', {'serviceGroupName': service.serviceGroup.name}) }}">{{ service.serviceGroup.name }}</a> /
+    {{ service.name }}
+{% endblock breadcrumbs %}
 {% block body %}
     <div class="container">
-        <h2>
-            {{ service.getName }}
-        </h2>
+        <h1>
+            {{ service.serviceGroup.name }}. {{ service.name }}
+        </h1>
         <div class="service_annotation">
             {{ service.getDescription|raw() }}
         </div>

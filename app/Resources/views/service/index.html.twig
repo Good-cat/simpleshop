@@ -1,7 +1,14 @@
 {% extends '::base.html.twig' %}
+{% block breadcrumbs %}
+    <a href="{{ path('homepage') }}">Главная</a> /
+    {{ serviceGroup.name }}
+{% endblock breadcrumbs %}
 {% block body %}
     <div class="container">
-        {% for service in serviceList %}
+        <h1>
+            {{ serviceGroup.name }}
+        </h1>
+        {% for service in serviceGroup.services %}
             {% if service.isVisible %}
                 {% include ':service:_list_part.html.twig' with {'service': service} %}
             {% endif %}
