@@ -246,29 +246,6 @@ class Contacts {
     }
 
     /**
-     * Set mapPointHiht
-     *
-     * @param string $mapPointHiht
-     * @return Contacts
-     */
-    public function setMapPointHiht($mapPointHiht)
-    {
-        $this->mapPointHiht = $mapPointHiht;
-
-        return $this;
-    }
-
-    /**
-     * Get mapPointHiht
-     *
-     * @return string 
-     */
-    public function getMapPointHiht()
-    {
-        return $this->mapPointHiht;
-    }
-
-    /**
      * Set mapPointInformation
      *
      * @param string $mapPointInformation
@@ -312,5 +289,28 @@ class Contacts {
     public function getRegistrationData()
     {
         return $this->registrationData;
+    }
+
+    /**
+     * Set mapPointHint
+     *
+     * @param string $mapPointHint
+     * @return Contacts
+     */
+    public function setMapPointHint($mapPointHint)
+    {
+        $this->mapPointHint = $mapPointHint;
+
+        return $this;
+    }
+
+    /**
+     * Get mapPointHint
+     *
+     * @return string 
+     */
+    public function getMapPointHint()
+    {
+        return $this->mapPointHint;
     }
 }

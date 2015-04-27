@@ -2,7 +2,9 @@
 {% block body %}
     <div class="container">
         {% for service in serviceList %}
-            {% include ':service:_list_part.html.twig' with {'service': service} %}
+            {% if service.isVisible %}
+                {% include ':service:_list_part.html.twig' with {'service': service} %}
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock body %}

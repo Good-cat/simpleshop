@@ -67,6 +67,11 @@ class MainPage {
      */
     private $actions;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $vkWidget;
+
 
     /**
      * Get id
@@ -321,5 +326,10 @@ class MainPage {
     public function getActions()
     {
         return $this->actions;
+    }
+
+    public function hasActions()
+    {
+        return $this->getActions();
     }
 }

@@ -31,10 +31,13 @@ class MainPageAdmin extends Admin{
                     ->add('content', 'textarea', array('label' => 'Содержание', 'attr'=>array('class' => 'tinymce')))
                     ->add('footer', 'text', array('label' => 'Футер', 'required' => false))
                 ->end()
-                ->with('Отображение блоков')
+                ->with('Отображение блоков', array('class' => 'col-xs-6'))
                     ->add('news', null, array('label' => 'Отображать новости', 'required' => false))
                     ->add('articles', null, array('label' => 'Отображать статьи', 'required' => false))
                     ->add('actions', null, array('label' => 'Отображать акции', 'required' => false))
+                ->end()
+                ->with('Социальные сети', array('class' => 'col-xs-6'))
+                    ->add('vkWidget', null, array('label' => 'Отображать виджет ВКонтакте', 'required' => false))
                 ->end()
             ->end()
             ->tab('SEO')
@@ -63,6 +66,7 @@ class MainPageAdmin extends Admin{
             ->add('news', null, array('label' => 'Отображать новости', 'editable' => true))
             ->add('articles', null, array('label' => 'Отображать статьи', 'editable' => true))
             ->add('actions', null, array('label' => 'Отображать акции', 'editable' => true))
+            ->add('vkWidget', null, array('label' => 'Отображать ВКонтакте', 'editable' => true))
         ;
     }
 
