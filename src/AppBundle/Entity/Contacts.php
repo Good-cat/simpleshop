@@ -61,7 +61,10 @@ class Contacts {
      */
     private $registrationData;
 
-
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $junctionSchema;
 
     /**
      * @ORM\Column(type="datetime")
@@ -312,5 +315,28 @@ class Contacts {
     public function getMapPointHint()
     {
         return $this->mapPointHint;
+    }
+
+    /**
+     * Set junctionSchema
+     *
+     * @param string $junctionSchema
+     * @return Contacts
+     */
+    public function setJunctionSchema($junctionSchema)
+    {
+        $this->junctionSchema = $junctionSchema;
+
+        return $this;
+    }
+
+    /**
+     * Get junctionSchema
+     *
+     * @return string 
+     */
+    public function getJunctionSchema()
+    {
+        return $this->junctionSchema;
     }
 }

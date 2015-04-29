@@ -61,7 +61,10 @@ class Contacts {
      */
     private $registrationData;
 
-
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $junctionSchema;
 
     /**
      * @ORM\Column(type="datetime")

@@ -22,6 +22,7 @@
                 <h3>Карта:</h3>
                 <div id="map" style="width: 600px; height: 400px"></div>
                 <h3>Схема проезда развязки:</h3>
+                {{ contacts.getJunctionSchema()|raw() }}
             </div>
         </div>
     </div>
