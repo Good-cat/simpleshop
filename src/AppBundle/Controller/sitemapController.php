@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class sitemapController extends Controller{
     /**
-     * @Route("/sitemap.xml", name="sitemap")
+     * @Route("/sitemap.{_format}", name="sitemap", Requirements={"_format" = "xml"})
      */
     public function sitemapAction()
     {
@@ -16,9 +16,25 @@ class sitemapController extends Controller{
 
         $urls = array();
         $hostname = $this->get('request')->getHost();
+        $scheme = $this->get('request')->getScheme();
 
         $urls[] = array('loc' => $this->get('router')->generate('homepage'), 'changefreq' => 'weekly', 'priority' => '1.0');
+        $urls[] = array('loc' => $this->get('router')->generate('contacts'), 'changefreq' => 'monthly', 'priority' => '0.8');
 
-        return $this->render('sitemap/index.html.twig', array('urls' => $urls, 'hostname' => $hostname));
+        foreach ($em->getRepository('AppBundle:Service')->findAll() as $service) {
+            $urls[] = array('loc' => $this->get('router')->generate('service_show',
+                    array(
+                        'serviceName' => $service->getName(),
+                        'serviceGroupName' => $service->getServiceGroup()->getName())),
+                        'lastmod' => $service->getUpdateAt(),
+                        'changefreq' => 'weekly',
+                        'priority' => '0.5');
+        }
+
+        return $this->render('sitemap/index.xml.twig', array(
+            'urls' => $urls,
+            'hostname' => $hostname,
+            'scheme' => $scheme
+            ));
     }
 } 
