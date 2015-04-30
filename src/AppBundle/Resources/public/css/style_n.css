@@ -618,10 +618,31 @@ padding:20px 15px 25px 15px;
 color:#a6a5a5;
 font-size: 15px;
 background-color: #1d1d1d;
-
-
 }
 
+
+/*myStyles*/
 ul.dropdown-menu a{
     color: #fff;
 }
+
+.breadcrumbs {
+    border:1px solid #545454;
+    background-color: #1d1d1d;
+    padding: 15px;
+    color: #FFFFFF;
+}
+
+a {
+    color: #e78f08;
+}
+
+a:hover {
+    color: #c0a16b;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #a6c9e2;
+}
+

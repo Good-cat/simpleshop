@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * @Route("/{serviceGroupName}/услуги")
+ * @Route("/{serviceGroupName}")
  */
 class ServiceController extends Controller{
 

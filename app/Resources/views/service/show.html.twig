@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block title %}
-    Карвест. {{ service.serviceGroup }}. Услуги. {{ service.name }} в Минске.
+    {{ service.serviceGroup }}. {{ service.name }} в Минске.
 {% endblock title %}
 {% block breadcrumbs %}
     <a href="{{ path('homepage') }}">Главная</a> /
@@ -10,7 +10,7 @@
 {% block body %}
     <div class="container">
         <h1>
-            {{ service.serviceGroup.name }}. {{ service.name }}
+            {{ block('title') }}
         </h1>
         <div class="service_annotation">
             {{ service.getDescription|raw() }}

@@ -62,11 +62,16 @@ class MainPageAdmin extends Admin{
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('title', null, array('label' => 'Название'))
             ->add('news', null, array('label' => 'Отображать новости', 'editable' => true))
             ->add('articles', null, array('label' => 'Отображать статьи', 'editable' => true))
             ->add('actions', null, array('label' => 'Отображать акции', 'editable' => true))
             ->add('vkWidget', null, array('label' => 'Отображать ВКонтакте', 'editable' => true))
+            ->add('_action', 'action', array(
+                'actions' => array(
+                    'edit' => array()
+                ),
+                'label' => 'Действия'
+            ))
         ;
     }
 

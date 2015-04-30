@@ -9,19 +9,25 @@
         '%info%': contacts.getMapPointInformation()
     })|raw() }}
 {% endblock javascripts %}
+{% block title %}Контакты{% endblock title %}
+{% block breadcrumbs %}
+    <a href="{{ path('homepage') }}">Главная</a> /
+    Контакты
+{% endblock breadcrumbs %}
 {% block body %}
     <div class="container">
+        <h1>{{ block('title') }}</h1>
         <div class="row">
             <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 ">
-                <h3>Телефоны:</h3>
+                <h2>Телефоны:</h2>
                 {{ contacts.getPhones()|raw() }}
-                <h3>Электронная почта:<h3>
+                <h2>Электронная почта:<h2>
                         {{ contacts.getEmail()|raw() }}
             </div>
             <div class="col-lg-7 col-md-7 col-sm-7 col-xl-7 ">
-                <h3>Карта:</h3>
+                <h2>Карта:</h2>
                 <div id="map" style="width: 600px; height: 400px"></div>
-                <h3>Схема проезда развязки:</h3>
+                <h2>Схема проезда развязки:</h2>
                 {{ contacts.getJunctionSchema()|raw() }}
             </div>
         </div>
