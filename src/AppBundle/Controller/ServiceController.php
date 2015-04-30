@@ -9,12 +9,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * @Route("/{serviceGroupName}")
+ * @Route("/{serviceGroupName}/")
  */
 class ServiceController extends Controller{
 
     /**
-     * @Route("", name="service_list")
+     * @Route("услуги", name="service_list")
      * @ParamConverter("serviceGroup", class="AppBundle:ServiceGroup", options={"mapping" : {"serviceGroupName" = "name"}})
      */
     public function listAction(ServiceGroup $serviceGroup)
