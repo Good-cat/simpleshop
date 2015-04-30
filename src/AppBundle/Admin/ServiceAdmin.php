@@ -18,6 +18,7 @@ class ServiceAdmin extends Admin{
         $formMapper
             ->add('name', 'text', array('label' => 'Название'))
             ->add('serviceGroup', 'sonata_type_model', array('label' => 'Группа услуг', 'class' => 'AppBundle\Entity\ServiceGroup'))
+            ->add('tags', 'sonata_type_model', array('label' => 'Тэги', 'class' => 'AppBundle\Entity\Tag', 'multiple' => true))
             ->add('visible', null, array('label' => 'Отображать', 'required' => false))
             ->add('annotation', null, array('label' => 'Краткое описание', 'attr'=>array('class' => 'tinymce')))
             ->add('description', 'textarea', array('label' => 'Развернутое описание', 'attr'=>array('class' => 'tinymce')))

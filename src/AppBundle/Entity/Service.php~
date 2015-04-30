@@ -9,12 +9,17 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="service")
  */
 class Service {
+
+    public function __construct() {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * @ORM\Id
@@ -55,6 +60,12 @@ class Service {
      * @ORM\Column(type="datetime")
      */
     private $update_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="services")
+     * @ORM\JoinTable(name="services_tags")
+     **/
+    private $tags;
 
 
     /**

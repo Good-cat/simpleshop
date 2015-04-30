@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: itm
- * Date: 15.04.15
- * Time: 16:26
+ * Date: 30.04.15
+ * Time: 17:30
  */
 
 namespace AppBundle\Entity;
@@ -13,9 +13,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="service")
+ * @ORM\Table(name="article")
  */
-class Service {
+class Article {
 
     public function __construct() {
         $this->tags = new ArrayCollection();
@@ -31,13 +31,7 @@ class Service {
     /**
      * @ORM\Column(type="string")
      */
-    private $name;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="ServiceGroup", inversedBy="services")
-     * @ORM\JoinColumn(name="service_group_id", referencedColumnName="id")
-     */
-    private $serviceGroup;
+    private $title;
 
     /**
      * @ORM\Column(type="text")
@@ -47,14 +41,12 @@ class Service {
     /**
      * @ORM\Column(type="text")
      */
-    private $description;
+    private $text;
 
     /**
      * @ORM\Column(type="boolean")
      */
     private $visible;
-
-//    private $articles;
 
     /**
      * @ORM\Column(type="datetime")
@@ -62,11 +54,10 @@ class Service {
     private $update_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="services")
-     * @ORM\JoinTable(name="services_tags")
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="articles")
+     * @ORM\JoinTable(name="articles_tags")
      **/
     private $tags;
-
 
     /**
      * Get id
@@ -79,33 +70,33 @@ class Service {
     }
 
     /**
-     * Set name
+     * Set title
      *
-     * @param string $name
-     * @return Service
+     * @param string $title
+     * @return Article
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get title
      *
      * @return string 
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 
     /**
      * Set annotation
      *
      * @param string $annotation
-     * @return Service
+     * @return Article
      */
     public function setAnnotation($annotation)
     {
@@ -125,33 +116,33 @@ class Service {
     }
 
     /**
-     * Set description
+     * Set text
      *
-     * @param string $description
-     * @return Service
+     * @param string $text
+     * @return Article
      */
-    public function setDescription($description)
+    public function setText($text)
     {
-        $this->description = $description;
+        $this->text = $text;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get text
      *
      * @return string 
      */
-    public function getDescription()
+    public function getText()
     {
-        return $this->description;
+        return $this->text;
     }
 
     /**
      * Set visible
      *
      * @param boolean $visible
-     * @return Service
+     * @return Article
      */
     public function setVisible($visible)
     {
@@ -170,16 +161,11 @@ class Service {
         return $this->visible;
     }
 
-    public function isVisible()
-    {
-        return $this->getVisible();
-    }
-
     /**
      * Set update_at
      *
      * @param \DateTime $updateAt
-     * @return Service
+     * @return Article
      */
     public function setUpdateAt($updateAt)
     {
@@ -199,42 +185,10 @@ class Service {
     }
 
     /**
-     * Set serviceGroup
-     *
-     * @param \AppBundle\Entity\ServiceGroup $serviceGroup
-     * @return Service
-     */
-    public function setServiceGroup(\AppBundle\Entity\ServiceGroup $serviceGroup = null)
-    {
-        $this->serviceGroup = $serviceGroup;
-
-        return $this;
-    }
-
-    /**
-     * Get serviceGroup
-     *
-     * @return \AppBundle\Entity\ServiceGroup 
-     */
-    public function getServiceGroup()
-    {
-        return $this->serviceGroup;
-    }
-
-    public function __toString()
-    {
-        if ($this->name) {
-            return $this->name;
-        } else {
-            return 'Услуга';
-        }
-    }
-
-    /**
      * Add tags
      *
      * @param \AppBundle\Entity\Tag $tags
-     * @return Service
+     * @return Article
      */
     public function addTag(\AppBundle\Entity\Tag $tags)
     {

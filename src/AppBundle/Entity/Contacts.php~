@@ -316,4 +316,27 @@ class Contacts {
     {
         return $this->mapPointHint;
     }
+
+    /**
+     * Set junctionSchema
+     *
+     * @param string $junctionSchema
+     * @return Contacts
+     */
+    public function setJunctionSchema($junctionSchema)
+    {
+        $this->junctionSchema = $junctionSchema;
+
+        return $this;
+    }
+
+    /**
+     * Get junctionSchema
+     *
+     * @return string 
+     */
+    public function getJunctionSchema()
+    {
+        return $this->junctionSchema;
+    }
 }

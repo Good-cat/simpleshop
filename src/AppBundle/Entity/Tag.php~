@@ -1,0 +1,45 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: itm
+ * Date: 30.04.15
+ * Time: 17:50
+ */
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="tag")
+ */
+class Tag {
+
+    public function __construct() {
+        $this->articles = new ArrayCollection();
+        $this->services = new ArrayCollection();
+    }
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $name;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Article", mappedBy="tags")
+     **/
+    private $articles;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Service", mappedBy="tags")
+     **/
+    private $services;
+} 

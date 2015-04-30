@@ -42,3 +42,14 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [SonataAdminBundle]]
+
+    sonata.admin.tag:
+        class: AppBundle\Admin\TagAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Настройки содержимого", label: "Тэги" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Tag
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]
