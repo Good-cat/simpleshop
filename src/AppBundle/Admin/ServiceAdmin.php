@@ -45,10 +45,17 @@ class ServiceAdmin extends Admin{
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('name', null, array('label' => 'Название'))
+            ->add('name', null, array('label' => 'Название'))
             ->add('visible', null, array('label' => 'Отображать', 'editable' => true))
             ->add('serviceGroup', null, array('label' => 'Группа услуг'))
             ->add('update_at', null, array('label' => 'Дата обновления'))
+            ->add('_action', 'action', array(
+                'actions' => array(
+                    'edit' => array(),
+                    'delete' => array()
+                ),
+                'label' => 'Действия'
+            ))
         ;
     }
 

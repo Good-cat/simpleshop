@@ -18,10 +18,29 @@ use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 class TagAdmin extends Admin{
 
+    protected function configureRoutes(RouteCollection $collection)
+    {
+//        $collection->remove('list');
+    }
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('name', null, array('label' => 'Название'))
+        ;
+    }
+
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+            ->add('name', null, array('label' => 'Имя'))
+            ->add('_action', 'action', array(
+                'actions' => array(
+                    'edit' => array(),
+                    'delete' => array()
+                ),
+                'label' => 'Действия'
+            ))
         ;
     }
 

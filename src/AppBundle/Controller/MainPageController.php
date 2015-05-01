@@ -23,7 +23,19 @@ class MainPageController extends Controller
             $this->create();
         }
 
-        return $this->render('mainpage/index.html.twig', array('mainpage' => $mainPage));
+        $articles = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Article')
+            ->findBy(
+                array('visible' => '1'),
+                array('update_at' => 'DESC'),
+                5
+            );
+
+        return $this->render('mainpage/index.html.twig', array(
+            'mainpage' => $mainPage,
+            'articles' => $articles
+        ));
     }
 
     public function getHeaderAction()

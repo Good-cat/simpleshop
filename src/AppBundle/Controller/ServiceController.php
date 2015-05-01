@@ -19,7 +19,18 @@ class ServiceController extends Controller{
      */
     public function listAction(ServiceGroup $serviceGroup)
     {
-        return $this->render('service/index.html.twig', array('serviceGroup' => $serviceGroup));
+        $articles = array();
+        foreach ($serviceGroup->getServices() as $service) {
+            foreach ($service->getTags() as $tag) {
+                foreach ($tag->getArticles() as $article)
+                $articles[] = $article;
+            }
+        }
+
+        return $this->render('service/index.html.twig', array(
+            'serviceGroup' => $serviceGroup,
+            'articles' => $articles
+        ));
     }
 
     /**
@@ -28,6 +39,15 @@ class ServiceController extends Controller{
      */
     public function showAction(Service $service)
     {
-        return $this->render('service/show.html.twig', array('service' => $service));
+        $articles = array();
+        foreach ($service->getTags() as $tag) {
+            foreach ($tag->getArticles() as $article)
+                $articles[] = $article;
+        }
+
+        return $this->render('service/show.html.twig', array(
+            'service' => $service,
+            'articles' => $articles
+        ));
     }
 } 
