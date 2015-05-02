@@ -54,7 +54,7 @@
                 {% endif %}
 
                 {% if mainpage.hasArticles %}
-                    {% include('_articles.html.twig') %}
+                    {% include '_articles.html.twig' with {'title': 'НОВЫЕ СТАТЬИ'}  %}
                 {% endif %}
             </div>
             {% endif %}

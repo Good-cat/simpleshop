@@ -22,7 +22,7 @@
                 </div>
             {% if articles %}
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    {% include('_articles.html.twig') %}
+                    {% include '_articles.html.twig' with {'title': 'СТАТЬИ', 'articles': articles} %}
                 </div>
             {% endif %}
         </div>
