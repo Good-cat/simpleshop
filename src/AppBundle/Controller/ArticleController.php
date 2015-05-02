@@ -11,8 +11,19 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Article;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
+/**
+ * @Route("/статьи")
+ */
 class ArticleController extends Controller{
 
+    /**
+     * @Route("/{id}", name="article_show")
+     * @ParamConverter("article", class="AppBundle:Article")
+     */
+    public function showAction(Article $article)
+    {
+        return $this->render('article/show.html.twig', array('article' => $article));
+    }
 }

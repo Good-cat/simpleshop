@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+{% block title %}
+    {{ article.title }}
+{% endblock title %}
+{% block breadcrumbs %}
+    <a href="{{ path('homepage') }}">Главная</a> /
+    {{ article.title }}
+{% endblock breadcrumbs %}
+{% block body %}
+    <div class="container">
+        <h1>
+            {{ block('title') }}
+        </h1>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                {{ article.text|raw() }}
+            </div>
+        </div>
+    </div>
+{% endblock body %}
