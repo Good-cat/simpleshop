@@ -26,4 +26,17 @@ class ArticleController extends Controller{
     {
         return $this->render('article/show.html.twig', array('article' => $article));
     }
+
+    /**
+     * @Route("", name="article_list")
+     */
+    public function listAction()
+    {
+        $articles = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Article')
+            ->findAll();
+
+        return $this->render('article/list.html.twig', array('articles' => $articles));
+    }
 }
