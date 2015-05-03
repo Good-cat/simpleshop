@@ -19,7 +19,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class ArticleController extends Controller{
 
     /**
-     * @Route("/{id}", name="article_show")
+     * @Route("/{id}/{title}", name="article_show")
      * @ParamConverter("article", class="AppBundle:Article")
      */
     public function showAction(Article $article)
