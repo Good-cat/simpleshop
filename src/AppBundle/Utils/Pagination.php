@@ -8,13 +8,13 @@
 
 namespace AppBundle\Utils;
 
-use Doctrine\ORM\PersistentCollection;
+use Doctrine\Common\Collections\Collection;
 
 class Pagination {
     private $itemsPerPage;
     private $arrayCollection;
 
-    public function setCollection(PersistentCollection $collection)
+    public function setCollection(Collection $collection)
     {
         $this->collection = $collection;
 
