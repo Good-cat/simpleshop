@@ -40,10 +40,10 @@
                 {% block breadcrumbs %}{% endblock breadcrumbs %}
             </div>
         </div>
-        {% block body %}{% endblock %}
+        {% block body %}{% endblock body%}
         {% block footer %}
-            <div class="footer" id="footer">
-                <div class="container">
+            <div class="container">
+                <div class="footer" id="footer">
                     <p class="text-muted" style="text-align: left;"><a href="{{ path('sonata_admin_redirect') }}">CarWest.by</a> © 2012-2014 {{ block('title') }}</p>
                 </div>
             </div>

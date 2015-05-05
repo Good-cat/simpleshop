@@ -53,3 +53,14 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [SonataAdminBundle]]
+
+    sonata.admin.article:
+        class: AppBundle\Admin\ArticleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Информация", label: "Статьи" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Article
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]

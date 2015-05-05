@@ -28,7 +28,18 @@ class sitemapController extends Controller{
                         'serviceGroupName' => $service->getServiceGroup()->getName())),
                         'lastmod' => $service->getUpdateAt(),
                         'changefreq' => 'weekly',
-                        'priority' => '0.5');
+                        'priority' => '0.7');
+        }
+
+        foreach ($em->getRepository('AppBundle:Article')->findAll() as $article) {
+            $urls[] = array('loc' => $this->get('router')->generate('article_show',
+                array(
+                    'id' => $article->getId(),
+                    'title' => $article->getTitle()
+                )),
+                'lastmod' => $article->getUpdateAt(),
+                'changefreq' => 'weekly',
+                'priority' => '0.7');
         }
 
         return $this->render('sitemap/index.xml.twig', array(

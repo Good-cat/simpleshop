@@ -216,4 +216,9 @@ class Article {
     {
         return $this->tags;
     }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
 }

@@ -54,15 +54,7 @@
                 {% endif %}
 
                 {% if mainpage.hasArticles %}
-                    <div id="b_u">
-                        <p style="color:#ececec;font-size:20px;font-weight:700;border-bottom:1px solid #494949;height: 40px;">СТАТЬИ:</p>
-                        <p style="color:#afaeae;">Компьютерная диагностика</p>
-                        <p style="color:#afaeae;">Ремонт электрооборудования</p>
-                        <p style="color:#afaeae;">Установка доп. оборудования</p>
-                        <p style="color:#afaeae;">Помощь в приобретении запчастей</p>
-                        <p style="color:#afaeae;">Изготовление чип-ключей</p>
-                        <p style="color:#afaeae;">Консультации</p>
-                    </div>
+                    {% include '_articles.html.twig' with {'title': 'НОВЫЕ СТАТЬИ'}  %}
                 {% endif %}
             </div>
             {% endif %}
