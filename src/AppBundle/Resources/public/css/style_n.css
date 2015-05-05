@@ -646,3 +646,26 @@ h1, h2, h3, h4, h5 {
     color: #a6c9e2;
 }
 
+.pagination > li > a {
+    background-color: #000000;
+    border-color: #808080;
+    color: orange;
+}
+
+.pagination > li > a:hover {
+    background-color: #a9a9a9;
+    border-color: #808080;
+    color: orangered;
+}
+
+.pagination > li.active > a, .pagination > li.active > a:hover {
+    background-color: orange;
+    border-color: orange;
+    color: #000000;
+}
+
+.pagination > li.disabled > a, .pagination > li.disabled > a:hover {
+    background-color: #000000;
+    border-color: #808080;
+}
+

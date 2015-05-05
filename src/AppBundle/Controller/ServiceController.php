@@ -14,12 +14,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ServiceController extends Controller{
 
     /**
-     * @Route("услуги", name="service_list")
+     * @Route("услуги/{page}", name="service_list", defaults={"page" = 1})
      * @ParamConverter("serviceGroup", class="AppBundle:ServiceGroup", options={"mapping" : {"serviceGroupName" = "name"}})
      */
-    public function listAction(ServiceGroup $serviceGroup)
+    public function listAction(ServiceGroup $serviceGroup, $page)
     {
-        return $this->render('service/index.html.twig', array('serviceGroup' => $serviceGroup));
+
+        $pagination = $this->get('pagination')->setCollection($serviceGroup->getServices())->setItemsPerPage(5);
+
+        return $this->render('service/index.html.twig', array(
+            'serviceGroup' => $serviceGroup,
+            'services' => $pagination->getItems($page),
+            'page' => $page,
+            'pagesCount' => $pagination->getPagesCount()
+        ));
     }
 
     /**

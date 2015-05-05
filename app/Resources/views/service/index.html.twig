@@ -8,10 +8,27 @@
         <h1>
             {{ serviceGroup.name }}
         </h1>
-        {% for service in serviceGroup.services %}
+        {% for service in services %}
             {% if service.isVisible %}
                 {% include ':service:_list_part.html.twig' with {'service': service} %}
             {% endif %}
         {% endfor %}
+
+        {% if pagesCount > 1 %}
+            <div class="row" style="text-align: center">
+                <h4>
+                    Страницы:
+                </h4>
+                <ul class="pagination pagination-sm" >
+                    <li class="{% if page == 1 %}disabled{% endif %}"><a href="{{ path('service_list', {'serviceGroupName': serviceGroup.name, 'page': 1}) }}">&laquo;</a></li>
+                    {% for currentPage in 1..pagesCount %}
+                        <li class="{% if page == currentPage %}active{% endif %}"><a href="{{ path('service_list', {'serviceGroupName': serviceGroup.name, 'page': currentPage}) }}">{{ currentPage }}</a></li>
+                    {% endfor %}
+                    <li class="{% if page == pagesCount %}disabled{% endif %}"><a href="{{ path('service_list', {'serviceGroupName': serviceGroup.name, 'page': pagesCount}) }}">&raquo;</a></li>
+                </ul>
+            </div>
+
+        {% endif %}
     </div>
+
 {% endblock body %}
