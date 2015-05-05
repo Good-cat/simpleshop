@@ -49,7 +49,6 @@ class ServiceController extends Controller{
      */
     public function showAction(ServiceGroup $serviceGroup, Service $service)
     {
-
         if ($service->getServiceGroup() == $serviceGroup && $service->isVisible()) {
             //точное совпадение ВСЕХ тэгов
             $articles = array();
