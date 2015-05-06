@@ -71,11 +71,11 @@ p.p_fz27 {
     padding-top: 5px;
 	height:44px;
 }
-.navbar-nav > li:hover {
-background-color: rgba(255, 255, 255, 0.12) !important;
-    height: 44px;
-	color: #ffffff !important;
-}
+/*.navbar-nav > li:hover {*/
+/*background-color: rgba(255, 255, 255, 0.12) !important;*/
+    /*height: 44px;*/
+	/*color: #ffffff !important;*/
+/*}*/
 .navbar-nav > li:hover > a {
 
 	color: #ffffff !important;
@@ -84,10 +84,10 @@ background-color: rgba(255, 255, 255, 0.12) !important;
     line-height: 20px;
     color: #fff !important;
 }
-.navbar-nav > li {
-    height: 44px;
-	padding-top:4px;
-}
+/*.navbar-nav > li {*/
+    /*height: 44px;*/
+	/*padding-top:4px;*/
+/*}*/
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     background-color: #fff;
     color: #fff !important;

@@ -13,7 +13,7 @@
         <script type="text/javascript" src="http://vk.com/js/api/share.js?91" charset="windows-1251"></script>
         <title>{% block title %}Carwest!{% endblock title%}</title>
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap.min.css') }}"/>
             <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap-modal.css') }}"/>
             <link rel="stylesheet" href="{{ asset('bundles/app/css/style_n.css') }}"/>
             <link rel="stylesheet" href="{{ asset('bundles/app/css/css.css') }}"/>
@@ -46,8 +46,8 @@
             </div>
         {% endblock footer %}
         {% block javascripts %}
-            <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/jquery.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/bootstrap.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/jquery-2.1.4.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/bootstrap.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/bootstrap-modal.js') }}"></script>
         {% endblock %}
     </body>
