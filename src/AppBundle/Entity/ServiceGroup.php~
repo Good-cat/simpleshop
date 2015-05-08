@@ -36,6 +36,7 @@ class ServiceGroup {
 
     /**
      * @ORM\OneToMany(targetEntity="Service", mappedBy="serviceGroup", orphanRemoval=true)
+     * @ORM\OrderBy({"name" = "ASC"})
      */
     private $services;
 

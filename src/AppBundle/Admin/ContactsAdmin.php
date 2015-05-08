@@ -53,9 +53,9 @@ class ContactsAdmin extends Admin{
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('phones', null, array('label' => 'Телефоны'))
-            ->add('email', null, array('label' => 'Электронная почта'))
-            ->add('skype', null, array('label' => 'Скайп'))
+            ->add('phones', 'html', array('label' => 'Телефоны'))
+            ->add('email', 'html', array('label' => 'Электронная почта'))
+            ->add('skype', 'html', array('label' => 'Скайп'))
             ->add('_action', 'action', array(
                 'actions' => array(
                     'edit' => array()

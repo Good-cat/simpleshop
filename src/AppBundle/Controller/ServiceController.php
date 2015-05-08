@@ -21,22 +21,28 @@ class ServiceController extends Controller{
      */
     public function listAction(ServiceGroup $serviceGroup, $page)
     {
+        $allServices = $serviceGroup->getServices();
+        $pagination = $this->get('pagination')->setCollection($allServices)->setItemsPerPage(Service::SERVICES_PER_PAGE);
+        $pageServices = $pagination->getItems($page);
 
-        $pagination = $this->get('pagination')->setCollection($serviceGroup->getServices())->setItemsPerPage(5);
-        $services = $pagination->getItems($page);
+        //если в группе всего один сервис, то список не выводится, а происходит перенаправление сразу на отображение этого единственного сервиса
+        if ($allServices->count() == 1) {
+            return $this->redirectToRoute('service_show', array(
+                'serviceGroupName' => $serviceGroup->getName(),
+                'serviceName' => $allServices->first()->getName()));
+        }
 
         $articles = array();
-        foreach ($services as $service) {
+        foreach ($pageServices as $service) {
             foreach ($service->getTags() as $tag) {
-                foreach ($tag->getArticles() as $article)
-                $articles[] = $article;
+                $articles = $articles + $tag->getArticles()->toArray();
             }
         }
 
         return $this->render('service/index.html.twig', array(
             'serviceGroup' => $serviceGroup,
-            'articles' => array_unique($articles),
-            'services' => $services,
+            'articles' => $articles,
+            'services' => $pageServices,
             'page' => $page,
             'pagesCount' => $pagination->getPagesCount()
         ));
@@ -51,17 +57,14 @@ class ServiceController extends Controller{
     {
         if ($service->getServiceGroup() == $serviceGroup && $service->isVisible()) {
             //точное совпадение ВСЕХ тэгов
-            $articles = array();
+            $articles = $service->getTags()->first()->getArticles()->toArray();
             //ХОТЯ БЫ ОДИН тэг совпадает
             $additional = array();
             foreach ($service->getTags() as $tag) {
-                if (empty($articles)) {
-                    $articles = $tag->getArticles()->toArray();
-                } else {
-                    $articles = array_intersect($articles, $tag->getArticles()->toArray());
-                }
-
-                $additional = array_merge($additional, $tag->getArticles()->toArray());
+                //остаются только совпадающие элементы массивов (пересечение массивов)
+                $articles = array_intersect($articles, $tag->getArticles()->toArray());
+                //массивы складываются, при этом элементы с одинаковым ключом и значением записываются, как один (т.е. убираются повторяющиеся значения)
+                $additional = $additional + $tag->getArticles()->toArray();
             }
             //убрать те статьи, которые уже есть в точном совпадении
             $additional = array_diff($additional, $articles);

@@ -2,10 +2,6 @@
 
 {% set hasColumn = mainpage.hasActions or mainpage.hasNews or mainpage.hasArticles %}
 
-{% block description -%}
-    {{ mainpage.getDescription }}
-{%- endblock description %}
-
 {% block title -%}
     {{ mainpage.getTitle }}
 {%- endblock title %}

@@ -40,9 +40,9 @@ class MainPageController extends Controller
 
     public function getHeaderAction()
     {
-        $mainPage = $this
+        $head = $this
             ->getDoctrine()
-            ->getRepository('AppBundle:MainPage')
+            ->getRepository('AppBundle:Head')
             ->findOneById(1);
 
         $serviceGroups = $this
@@ -51,8 +51,8 @@ class MainPageController extends Controller
             ->findByVisible(1);
 
         return $this->render('_navbar.html.twig', array(
-            'contacts' => $mainPage->getContacts(),
-            'headerText' => $mainPage->getHeader(),
+            'contacts' => $head->getContacts(),
+            'headerText' => $head->getHeader(),
             'serviceGroups' => $serviceGroups
         ));
     }

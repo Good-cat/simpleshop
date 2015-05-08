@@ -17,6 +17,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Service {
 
+    const SERVICES_PER_PAGE = 5;
+
     public function __construct() {
         $this->tags = new ArrayCollection();
     }

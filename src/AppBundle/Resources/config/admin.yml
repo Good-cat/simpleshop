@@ -10,6 +10,17 @@ services:
         calls:
             - [ setTranslationDomain, [SonataAdminBundle]]
 
+    sonata.admin.head:
+        class: AppBundle\Admin\HeadAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Настройки содержимого", label: "Шапка" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Head
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]
+
     sonata.admin.service_group:
         class: AppBundle\Admin\ServiceGroupAdmin
         tags:
