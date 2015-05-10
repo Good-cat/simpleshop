@@ -21,9 +21,9 @@ class ServiceController extends Controller{
      */
     public function listAction(ServiceGroup $serviceGroup, $page)
     {
-        $allServices = $serviceGroup->getServices();
-        $pagination = $this->get('pagination')->setCollection($allServices)->setItemsPerPage(Service::SERVICES_PER_PAGE);
-        $pageServices = $pagination->getItems($page);
+        $allServices = $serviceGroup->getServices()->filter(function($service) {
+            return $service->getVisible() == 1;
+        });
 
         //если в группе всего один сервис, то список не выводится, а происходит перенаправление сразу на отображение этого единственного сервиса
         if ($allServices->count() == 1) {
@@ -32,10 +32,15 @@ class ServiceController extends Controller{
                 'serviceName' => $allServices->first()->getName()));
         }
 
+        $pagination = $this->get('pagination')->setCollection($allServices)->setItemsPerPage(Service::SERVICES_PER_PAGE);
+        $pageServices = $pagination->getItems($page);
+
         $articles = array();
         foreach ($pageServices as $service) {
-            foreach ($service->getTags() as $tag) {
-                $articles = $articles + $tag->getArticles()->toArray();
+            if ($service->isVisible()){
+                foreach ($service->getTags() as $tag) {
+                    $articles = $articles + $tag->getArticles()->toArray();
+                }
             }
         }
 
