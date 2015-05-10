@@ -22,7 +22,7 @@ class ServiceController extends Controller{
     public function listAction(ServiceGroup $serviceGroup, $page)
     {
         $allServices = $serviceGroup->getServices()->filter(function($service) {
-            return $service->getVisible() == 1;
+            return $service->isVisible() == 1;
         });
 
         //если в группе всего один сервис, то список не выводится, а происходит перенаправление сразу на отображение этого единственного сервиса
@@ -39,14 +39,14 @@ class ServiceController extends Controller{
         foreach ($pageServices as $service) {
             if ($service->isVisible()){
                 foreach ($service->getTags() as $tag) {
-                    $articles = $articles + $tag->getArticles()->toArray();
+                    $articles = array_merge($articles, $tag->getArticles()->toArray());
                 }
             }
         }
 
         return $this->render('service/index.html.twig', array(
             'serviceGroup' => $serviceGroup,
-            'articles' => $articles,
+            'articles' => array_unique($articles),
             'services' => $pageServices,
             'page' => $page,
             'pagesCount' => $pagination->getPagesCount()
@@ -69,14 +69,14 @@ class ServiceController extends Controller{
                 //остаются только совпадающие элементы массивов (пересечение массивов)
                 $articles = array_intersect($articles, $tag->getArticles()->toArray());
                 //массивы складываются, при этом элементы с одинаковым ключом и значением записываются, как один (т.е. убираются повторяющиеся значения)
-                $additional = $additional + $tag->getArticles()->toArray();
+                $additional = array_merge($additional, $tag->getArticles()->toArray());
             }
             //убрать те статьи, которые уже есть в точном совпадении
             $additional = array_diff($additional, $articles);
 
             return $this->render('service/show.html.twig', array(
                 'service' => $service,
-                'articles' => $articles,
+                'articles' => array_unique($articles),
                 'additional' => $additional
             ));
         } else {
