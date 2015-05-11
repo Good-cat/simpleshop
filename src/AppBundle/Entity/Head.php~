@@ -133,4 +133,19 @@ class Head {
         return $this->description;
     }
 
-} 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function __toString()
+    {
+        return "Шапка";
+    }
+}

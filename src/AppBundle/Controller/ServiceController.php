@@ -68,7 +68,7 @@ class ServiceController extends Controller{
             foreach ($service->getTags() as $tag) {
                 //остаются только совпадающие элементы массивов (пересечение массивов)
                 $articles = array_intersect($articles, $tag->getArticles()->toArray());
-                //массивы складываются, при этом элементы с одинаковым ключом и значением записываются, как один (т.е. убираются повторяющиеся значения)
+                //массивы складываются, т.е. "собираются" все статьи, имеющие хотя бы один общий с услугой тэг
                 $additional = array_merge($additional, $tag->getArticles()->toArray());
             }
             //убрать те статьи, которые уже есть в точном совпадении
