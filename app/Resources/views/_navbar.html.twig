@@ -34,8 +34,8 @@
 
                 <li><a href="{{ path('homepage') }}">Главная</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Сервис <b class="caret"></b></a>
-                    <ul class="dropdown-menu" style="text-align: left; color: #FFFFFF; background-color: #000000;">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Услуги <b class="caret"></b></a>
+                    <ul class="dropdown-menu" style="text-align: left; color: #FFFFFF; background-color: #5c5c5c;">
                         {% for serviceGroup in serviceGroups %}
                             <li><a href="{{ path('service_list', {'serviceGroupName': serviceGroup.getName}) }}">{{ serviceGroup.getName }}</a></li>
                             {% if not loop.last %}
@@ -44,7 +44,7 @@
                         {% endfor %}
                     </ul>
                 </li>
-                <li><a href="{{ path('article_list') }}">Полезная информация</a></li>
+                <li><a href="{{ path('article_list') }}">Статьи</a></li>
                 <li><a href="{{ path('vacant') }}">Вакансии</a></li>
                 <li><a href="{{ path('contacts') }}">Контакты</a></li>
             </ul>
