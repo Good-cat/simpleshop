@@ -37,10 +37,8 @@ class ServiceController extends Controller{
 
         $articles = array();
         foreach ($pageServices as $service) {
-            if ($service->isVisible()){
-                foreach ($service->getTags() as $tag) {
-                    $articles = array_merge($articles, $tag->getArticles()->toArray());
-                }
+            foreach ($service->getTags() as $tag) {
+                $articles = array_merge($articles, $tag->getArticles()->toArray());
             }
         }
 
