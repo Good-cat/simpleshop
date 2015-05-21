@@ -38,7 +38,9 @@ class ServiceController extends Controller{
         $articles = array();
         foreach ($pageServices as $service) {
             foreach ($service->getTags() as $tag) {
-                $articles = array_merge($articles, $tag->getArticles()->toArray());
+                if ($tag) {
+                    $articles = array_merge($articles, $tag->getArticles()->toArray());
+                }
             }
         }
 
@@ -58,19 +60,22 @@ class ServiceController extends Controller{
      */
     public function showAction(ServiceGroup $serviceGroup, Service $service)
     {
+        $additional = array();
+        $articles = array();
         if ($service->getServiceGroup() == $serviceGroup && $service->isVisible()) {
             //точное совпадение ВСЕХ тэгов
-            $articles = $service->getTags()->first()->getArticles()->toArray();
-            //ХОТЯ БЫ ОДИН тэг совпадает
-            $additional = array();
-            foreach ($service->getTags() as $tag) {
-                //остаются только совпадающие элементы массивов (пересечение массивов)
-                $articles = array_intersect($articles, $tag->getArticles()->toArray());
-                //массивы складываются, т.е. "собираются" все статьи, имеющие хотя бы один общий с услугой тэг
-                $additional = array_merge($additional, $tag->getArticles()->toArray());
+            if ($service->getTags()->toArray()) {
+                $articles = $service->getTags()->first()->getArticles()->toArray();
+                //ХОТЯ БЫ ОДИН тэг совпадает
+                foreach ($service->getTags() as $tag) {
+                    //остаются только совпадающие элементы массивов (пересечение массивов)
+                    $articles = array_intersect($articles, $tag->getArticles()->toArray());
+                    //массивы складываются, т.е. "собираются" все статьи, имеющие хотя бы один общий с услугой тэг
+                    $additional = array_merge($additional, $tag->getArticles()->toArray());
+                }
+                //убрать те статьи, которые уже есть в точном совпадении
+                $additional = array_diff($additional, $articles);
             }
-            //убрать те статьи, которые уже есть в точном совпадении
-            $additional = array_diff($additional, $articles);
 
             return $this->render('service/show.html.twig', array(
                 'service' => $service,
