@@ -1,12 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="src/" tests="3" assertions="21" failures="0" errors="0" time="1.311938">
-    <testsuite name="AppBundle\Tests\Controller\MainPageControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/MainPageControllerTest.php" tests="1" assertions="3" failures="0" errors="0" time="0.318927">
-      <testcase name="testIndex" class="AppBundle\Tests\Controller\MainPageControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/MainPageControllerTest.php" line="10" assertions="3" time="0.318927"/>
+  <testsuite name="src/" tests="3" assertions="6" failures="1" errors="1" time="0.584208">
+    <testsuite name="AppBundle\Tests\Controller\MainPageControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/MainPageControllerTest.php" tests="1" assertions="3" failures="0" errors="0" time="0.330769">
+      <testcase name="testIndex" class="AppBundle\Tests\Controller\MainPageControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/MainPageControllerTest.php" line="10" assertions="3" time="0.330769"/>
     </testsuite>
-    <testsuite name="AppBundle\Tests\Controller\ServiceControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/ServiceControllerTest.php" tests="2" assertions="18" failures="0" errors="0" time="0.993011">
-      <testcase name="testList" class="AppBundle\Tests\Controller\ServiceControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/ServiceControllerTest.php" line="8" assertions="2" time="0.254781"/>
-      <testcase name="testShow" class="AppBundle\Tests\Controller\ServiceControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/ServiceControllerTest.php" line="30" assertions="16" time="0.738230"/>
+    <testsuite name="AppBundle\Tests\Controller\ServiceControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/ServiceControllerTest.php" tests="2" assertions="3" failures="1" errors="1" time="0.253439">
+      <testcase name="testList" class="AppBundle\Tests\Controller\ServiceControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/ServiceControllerTest.php" line="11" assertions="3" time="0.253439">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">AppBundle\Tests\Controller\ServiceControllerTest::testList
+Failed asserting that exception of type "PHPUnit_Framework_Error" is thrown.
+
+</failure>
+      </testcase>
+      <testcase name="testShow" class="AppBundle\Tests\Controller\ServiceControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/ServiceControllerTest.php" line="35" assertions="0" time="0.000000">
+        <error type="PHPUnit_Framework_Exception">AppBundle\Tests\Controller\ServiceControllerTest::testShow
+PHPUnit_Framework_Exception: PHP Fatal error:  Call to a member function getArticles() on a non-object in /home/itm/projects/simpleshop/src/AppBundle/Controller/ServiceController.php on line 70
+PHP Stack trace:
+PHP   1. {main}() -:0
+PHP   2. __phpunit_run_isolated_test() -:497
+PHP   3. PHPUnit_Framework_TestCase-&gt;run() -:350
+PHP   4. PHPUnit_Framework_TestResult-&gt;run() /home/itm/projects/simpleshop/vendor/phpunit/phpunit/src/Framework/TestCase.php:699
+PHP   5. PHPUnit_Framework_TestCase-&gt;runBare() /home/itm/projects/simpleshop/vendor/phpunit/phpunit/src/Framework/TestResult.php:609
+PHP   6. PHPUnit_Framework_TestCase-&gt;runTest() /home/itm/projects/simpleshop/vendor/phpunit/phpunit/src/Framework/TestCase.php:743
+PHP   7. ReflectionMethod-&gt;invokeArgs() /home/itm/projects/simpleshop/vendor/phpunit/phpunit/src/Framework/TestCase.php:866
+PHP   8. AppBundle\Tests\Controller\ServiceControllerTest-&gt;testShow() /home/itm/projects/simpleshop/vendor/phpunit/phpunit/src/Framework/TestCase.php:866
+PHP   9. Symfony\Component\BrowserKit\Client-&gt;request() /home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/ServiceControllerTest.php:51
+PHP  10. Symfony\Bundle\FrameworkBundle\Client-&gt;doRequest() /home/itm/projects/simpleshop/vendor/symfony/symfony/src/Symfony/Component/BrowserKit/Client.php:327
+PHP  11. Symfony\Component\HttpKernel\Client-&gt;doRequest() /home/itm/projects/simpleshop/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Client.php:111
+PHP  12. Symfony\Component\HttpKernel\Kernel-&gt;handle() /home/itm/projects/simpleshop/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Client.php:81
+PHP  13. Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel-&gt;handle() /home/itm/projects/simpleshop/app/bootstrap.php.cache:2383
+PHP  14. Symfony\Component\HttpKernel\HttpKernel-&gt;handle() /home/itm/projects/simpleshop/app/bootstrap.php.cache:3139
+PHP  15. Symfony\Component\HttpKernel\HttpKernel-&gt;handleRaw() /home/itm/projects/simpleshop/app/bootstrap.php.cache:2990
+PHP  16. call_user_func_array() /home/itm/projects/simpleshop/app/bootstrap.php.cache:3028
+PHP  17. AppBundle\Controller\ServiceController-&gt;showAction() /home/itm/projects/simpleshop/app/bootstrap.php.cache:3028
+
+Fatal error: Call to a member function getArticles() on a non-object in /home/itm/projects/simpleshop/src/AppBundle/Controller/ServiceController.php on line 70
+
+Call Stack:
+    0.0022     446368   1. {main}() -:0
+    0.0241    3342264   2. __phpunit_run_isolated_test() -:497
+    0.0248    3474544   3. PHPUnit_Framework_TestCase-&gt;run() -:350
+    0.0259    3636992   4. PHPUnit_Framework_TestResult-&gt;run() /home/itm/projects/simpleshop/vendor/phpunit/phpunit/src/Framework/TestCase.php:699
+    0.0264    3717904   5. PHPUnit_Framework_TestCase-&gt;runBare() /home/itm/projects/simpleshop/vendor/phpunit/phpunit/src/Framework/TestResult.php:609
+    0.0272    3739176   6. PHPUnit_Framework_TestCase-&gt;runTest() /home/itm/projects/simpleshop/vendor/phpunit/phpunit/src/Framework/TestCase.php:743
+    0.0272    3740016   7. ReflectionMethod-&gt;invokeArgs() /home/itm/projects/simpleshop/vendor/phpunit/phpunit/src/Framework/TestCase.php:866
+    0.0272    3740544   8. AppBundle\Tests\Controller\ServiceControllerTest-&gt;testShow() /home/itm/projects/simpleshop/vendor/phpunit/phpunit/src/Framework/TestCase.php:866
+    0.6031   31417984   9. Symfony\Component\BrowserKit\Client-&gt;request() /home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/ServiceControllerTest.php:51
+    0.6032   31427464  10. Symfony\Bundle\FrameworkBundle\Client-&gt;doRequest() /home/itm/projects/simpleshop/vendor/symfony/symfony/src/Symfony/Component/BrowserKit/Client.php:327
+    0.6034   31411944  11. Symfony\Component\HttpKernel\Client-&gt;doRequest() /home/itm/projects/simpleshop/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Client.php:111
+    0.6034   31411944  12. Symfony\Component\HttpKernel\Kernel-&gt;handle() /home/itm/projects/simpleshop/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Client.php:81
+    0.6105   31749920  13. Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel-&gt;handle() /home/itm/projects/simpleshop/app/bootstrap.php.cache:2383
+    0.6105   31751088  14. Symfony\Component\HttpKernel\HttpKernel-&gt;handle() /home/itm/projects/simpleshop/app/bootstrap.php.cache:3139
+    0.6105   31751088  15. Symfony\Component\HttpKernel\HttpKernel-&gt;handleRaw() /home/itm/projects/simpleshop/app/bootstrap.php.cache:2990
+    0.6350   32566016  16. call_user_func_array() /home/itm/projects/simpleshop/app/bootstrap.php.cache:3028
+    0.6350   32566440  17. AppBundle\Controller\ServiceController-&gt;showAction() /home/itm/projects/simpleshop/app/bootstrap.php.cache:3028
+
+</error>
+      </testcase>
     </testsuite>
   </testsuite>
 </testsuites>
