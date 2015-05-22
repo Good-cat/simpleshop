@@ -15,6 +15,18 @@ security:
             pattern: ^/(_(profiler|wdt|error)|css|images|js)/
             security: false
 
+        periscope:
+          pattern:  /periscope(.*)
+          context:  user
+          form_login:
+            provider:  fos_userbundle
+            login_path:  /admin/login
+            use_forward:  false
+            check_path:  null
+            failure_path:  null
+          logout:
+            path:  /admin/logout
+
         admin:
             pattern:  /admin(.*)
             context:  user
@@ -50,4 +62,5 @@ security:
         # Change these rules to adapt them to your needs
         - { path: ^/admin/sonata, role: [ROLE_ADMIN] }
         - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_REDACTOR] }
+        - { path: ^/periscope/, role: [ROLE_ADMIN] }
         - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

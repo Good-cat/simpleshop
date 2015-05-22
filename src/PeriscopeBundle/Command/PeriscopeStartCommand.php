@@ -19,6 +19,6 @@ $this
 
 protected function execute(InputInterface $input, OutputInterface $output)
 {
-    $out = shell_exec('./vendor/phpunit/phpunit/phpunit -c app --log-junit src/PeriscopeBundle/phpunit_result.xml --process-isolation src/');
+    $out = shell_exec('./vendor/phpunit/phpunit/phpunit -c app --log-junit src/PeriscopeBundle/phpunit_result.xml src/');
 }
 }
