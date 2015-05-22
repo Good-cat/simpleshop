@@ -39,7 +39,9 @@ class ServiceController extends Controller{
         foreach ($pageServices as $service) {
             foreach ($service->getTags() as $tag) {
                 if ($tag) {
-                    $articles = array_merge($articles, $tag->getArticles()->toArray());
+                    $articles = array_merge($articles, $tag->getArticles()->filter(function($service) {
+                        return $service->isVisible() == 1;
+                    })->toArray());
                 }
             }
         }
@@ -69,9 +71,13 @@ class ServiceController extends Controller{
                 //ХОТЯ БЫ ОДИН тэг совпадает
                 foreach ($service->getTags() as $tag) {
                     //остаются только совпадающие элементы массивов (пересечение массивов)
-                    $articles = array_intersect($articles, $tag->getArticles()->toArray());
+                    $articles = array_intersect($articles, $tag->getArticles()->filter(function($service) {
+                        return $service->isVisible() == 1;
+                    })->toArray());
                     //массивы складываются, т.е. "собираются" все статьи, имеющие хотя бы один общий с услугой тэг
-                    $additional = array_merge($additional, $tag->getArticles()->toArray());
+                    $additional = array_merge($additional, $tag->getArticles()->filter(function($service) {
+                        return $service->isVisible() == 1;
+                    })->toArray());
                 }
                 //убрать те статьи, которые уже есть в точном совпадении
                 $additional = array_diff($additional, $articles);

@@ -161,6 +161,11 @@ class Article {
         return $this->visible;
     }
 
+    public function isVisible()
+    {
+        return $this->getVisible();
+    }
+
     /**
      * Set update_at
      *

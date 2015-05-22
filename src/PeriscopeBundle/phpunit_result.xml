@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="src/" tests="3" assertions="21" failures="0" errors="0" time="1.311938">
+    <testsuite name="AppBundle\Tests\Controller\MainPageControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/MainPageControllerTest.php" tests="1" assertions="3" failures="0" errors="0" time="0.318927">
+      <testcase name="testIndex" class="AppBundle\Tests\Controller\MainPageControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/MainPageControllerTest.php" line="10" assertions="3" time="0.318927"/>
+    </testsuite>
+    <testsuite name="AppBundle\Tests\Controller\ServiceControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/ServiceControllerTest.php" tests="2" assertions="18" failures="0" errors="0" time="0.993011">
+      <testcase name="testList" class="AppBundle\Tests\Controller\ServiceControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/ServiceControllerTest.php" line="8" assertions="2" time="0.254781"/>
+      <testcase name="testShow" class="AppBundle\Tests\Controller\ServiceControllerTest" file="/home/itm/projects/simpleshop/src/AppBundle/Tests/Controller/ServiceControllerTest.php" line="30" assertions="16" time="0.738230"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
