@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * @Route("/услуги/{serviceGroupName}")
+ * @Route("/услуги/{serviceGroupSlug}")
  */
 class ServiceController extends Controller{
 
@@ -17,7 +17,7 @@ class ServiceController extends Controller{
      * @Route("/{page}", name="service_list", defaults={"page" = 1}, requirements={
      *     "page": "\d+"
      * })
-     * @ParamConverter("serviceGroup", class="AppBundle:ServiceGroup", options={"mapping" : {"serviceGroupName" = "name"}})
+     * @ParamConverter("serviceGroup", class="AppBundle:ServiceGroup", options={"mapping" : {"serviceGroupSlug" = "slug"}})
      */
     public function listAction(ServiceGroup $serviceGroup, $page)
     {
@@ -28,8 +28,8 @@ class ServiceController extends Controller{
         //если в группе всего один сервис, то список не выводится, а происходит перенаправление сразу на отображение этого единственного сервиса
         if ($allServices->count() == 1) {
             return $this->redirectToRoute('service_show', array(
-                'serviceGroupName' => $serviceGroup->getName(),
-                'serviceName' => $allServices->first()->getName()));
+                'serviceGroupSlug' => $serviceGroup->getSlug(),
+                'serviceSlug' => $allServices->first()->getSlug()));
         }
 
         $pagination = $this->get('pagination')->setCollection($allServices)->setItemsPerPage(Service::SERVICES_PER_PAGE);
@@ -56,9 +56,9 @@ class ServiceController extends Controller{
     }
 
     /**
-     * @Route("/{serviceName}", name="service_show")
-     * @ParamConverter("serviceGroup", class="AppBundle:ServiceGroup", options={"mapping" : {"serviceGroupName" = "name"}})
-     * @ParamConverter("service", class="AppBundle:Service", options={"mapping" : {"serviceName" = "name"}})
+     * @Route("/{serviceSlug}.html", name="service_show")
+     * @ParamConverter("serviceGroup", class="AppBundle:ServiceGroup", options={"mapping" : {"serviceGroupSlug" = "slug"}})
+     * @ParamConverter("service", class="AppBundle:Service", options={"mapping" : {"serviceSlug" = "slug"}})
      */
     public function showAction(ServiceGroup $serviceGroup, Service $service)
     {

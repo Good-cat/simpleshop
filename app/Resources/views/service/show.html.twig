@@ -4,7 +4,7 @@
 {% endblock title %}
 {% block breadcrumbs %}
     <a href="{{ path('homepage') }}">Главная</a> /
-    <a href="{{ path('service_list', {'serviceGroupName': service.serviceGroup.name}) }}">{{ service.serviceGroup.name }}</a> /
+    <a href="{{ path('service_list', {'serviceGroupSlug': service.serviceGroup.slug}) }}">{{ service.serviceGroup.name }}</a> /
     {{ service.name }}
 {% endblock breadcrumbs %}
 {% block body %}
@@ -23,7 +23,7 @@
                     document.write(VK.Share.button(false,{type: "custom", text: "<img height='21' src=\"http://vk.com/images/vk32.png?1\" />"}));
                     --></script>
 
-            <div class="fb-like" data-href="{{ path('service_show', {'serviceGroupName': service.serviceGroup, 'serviceName': service}) }}" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+            <div class="fb-like" data-href="{{ path('service_show', {'serviceGroupSlug': service.serviceGroup.slug, 'serviceSlug': service.slug}) }}" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
             </div>
         {% if articles or additional%}
             <div class="col-sm-12 col-md-4 col-lg-4">

@@ -62,11 +62,13 @@ class ServiceAdmin extends Admin{
     public function prePersist($service)
     {
         $service->setUpdateAt(new \DateTime());
+        $service->setSlug();
     }
 
     public function preUpdate($service)
     {
         $service->setUpdateAt(new \DateTime());
+        $service->setSlug();
     }
 
     public function getParentAssociationMapping()

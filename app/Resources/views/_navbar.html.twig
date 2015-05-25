@@ -37,7 +37,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Услуги <b class="caret"></b></a>
                     <ul class="dropdown-menu" style="text-align: left; color: #FFFFFF; background-color: #5c5c5c;">
                         {% for serviceGroup in serviceGroups %}
-                            <li><a href="{{ path('service_list', {'serviceGroupName': serviceGroup.getName}) }}">{{ serviceGroup.getName }}</a></li>
+                            <li><a href="{{ path('service_list', {'serviceGroupSlug': serviceGroup.slug}) }}">{{ serviceGroup.getName }}</a></li>
                             {% if not loop.last %}
                                 <li class="divider"></li>
                             {% endif %}

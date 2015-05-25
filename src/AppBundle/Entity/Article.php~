@@ -60,6 +60,11 @@ class Article {
     private $tags;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $slug;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -159,6 +164,11 @@ class Article {
     public function getVisible()
     {
         return $this->visible;
+    }
+
+    public function isVisible()
+    {
+        return $this->getVisible();
     }
 
     /**

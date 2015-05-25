@@ -45,6 +45,11 @@ class ServiceGroup {
      */
     private $visible;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $slug;
+
 
     /**
      * Get id

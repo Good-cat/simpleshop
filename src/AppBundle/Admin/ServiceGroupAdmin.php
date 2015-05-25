@@ -97,4 +97,14 @@ class ServiceGroupAdmin extends Admin{
             }
         }
     }
+
+    public function prePersist($service)
+    {
+        $service->setSlug();
+    }
+
+    public function preUpdate($service)
+    {
+        $service->setSlug();
+    }
 }

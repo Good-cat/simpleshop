@@ -10,6 +10,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Utils\Slugify;
 
 /**
  * @ORM\Entity
@@ -58,6 +59,11 @@ class Article {
      * @ORM\JoinTable(name="articles_tags")
      **/
     private $tags;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $slug;
 
     /**
      * Get id
@@ -225,5 +231,28 @@ class Article {
     public function __toString()
     {
         return $this->title;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Article
+     */
+    public function setSlug()
+    {
+        $this->slug = Slugify::slug($this->title);
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

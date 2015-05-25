@@ -69,6 +69,11 @@ class Service {
      **/
     private $tags;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $slug;
+
 
     /**
      * Get id

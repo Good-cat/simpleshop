@@ -45,13 +45,15 @@ class ArticleAdmin extends Admin{
         ;
     }
 
-    public function prePersist($service)
+    public function prePersist($article)
     {
-        $service->setUpdateAt(new \DateTime());
+        $article->setUpdateAt(new \DateTime());
+        $article->setSlug();
     }
 
-    public function preUpdate($service)
+    public function preUpdate($article)
     {
-        $service->setUpdateAt(new \DateTime());
+        $article->setUpdateAt(new \DateTime());
+        $article->setSlug();
     }
 }
