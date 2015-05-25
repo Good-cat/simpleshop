@@ -27,8 +27,8 @@ class SitemapController extends Controller{
             $urls[] = array(
                 'loc' => $this->get('router')->generate('service_show',
                     array(
-                        'serviceName' => $service->getName(),
-                        'serviceGroupName' => $service->getServiceGroup()->getName()
+                        'serviceSlug' => $service->getSlug(),
+                        'serviceGroupSlug' => $service->getServiceGroup()->getSlug()
                     )),
                 'lastmod' => $service->getUpdateAt(),
                 'changefreq' => 'weekly',
@@ -40,7 +40,7 @@ class SitemapController extends Controller{
                 'loc' => $this->get('router')->generate('article_show',
                     array(
                         'id' => $article->getId(),
-                        'title' => $article->getTitle()
+                        'slug' => $article->getSlug()
                     )),
                 'lastmod' => $article->getUpdateAt(),
                 'changefreq' => 'weekly',
