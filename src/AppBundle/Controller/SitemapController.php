@@ -23,19 +23,21 @@ class SitemapController extends Controller{
             'changefreq' => 'weekly',
             'priority' => '1.0');
 
-        foreach ($em->getRepository('AppBundle:Service')->findAll() as $service) {
-            $urls[] = array(
-                'loc' => $this->get('router')->generate('service_show',
-                    array(
-                        'serviceSlug' => $service->getSlug(),
-                        'serviceGroupSlug' => $service->getServiceGroup()->getSlug()
-                    )),
-                'lastmod' => $service->getUpdateAt(),
-                'changefreq' => 'weekly',
-                'priority' => '0.7');
+        foreach ($em->getRepository('AppBundle:Service')->findBy(array('visible' => 1)) as $service) {
+            if ($service->getServiceGroup()->getVisible() == 1) {
+                $urls[] = array(
+                    'loc' => $this->get('router')->generate('service_show',
+                            array(
+                                'serviceSlug' => $service->getSlug(),
+                                'serviceGroupSlug' => $service->getServiceGroup()->getSlug()
+                            )),
+                    'lastmod' => $service->getUpdateAt(),
+                    'changefreq' => 'weekly',
+                    'priority' => '0.7');
+            }
         }
 
-        foreach ($em->getRepository('AppBundle:Article')->findAll() as $article) {
+        foreach ($em->getRepository('AppBundle:Article')->findBy(array('visible' => 1)) as $article) {
             $urls[] = array(
                 'loc' => $this->get('router')->generate('article_show',
                     array(
