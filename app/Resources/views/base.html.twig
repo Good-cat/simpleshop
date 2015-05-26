@@ -4,13 +4,14 @@
 <!--[if !IE]><!-->
 <html class="no-js" lang="en"><!--<![endif]-->
     <head>
+        {% include('yandex.metrika.counter.html.twig') %}
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="{% block description %}{% endblock description %}" name="description">
         <meta content="{% block keywords %}{% endblock keywords %}" name="keywords">
-        <script type="text/javascript" src="http://vk.com/js/api/share.js?91" charset="windows-1251"></script>
+        {% include('vk.script.html.twig') %}
         <title>{% block title %}Carwest!{% endblock title%}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap.min.css') }}"/>
@@ -22,15 +23,7 @@
     </head>
     <body>
         <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.3";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
-
+        {% include('facebook.script.html.twig') %}
         {{ render(controller('AppBundle:MainPage:getHeader')) }}
         <div class="container">
             <div class="breadcrumbs">
@@ -39,9 +32,17 @@
         </div>
         {% block body %}{% endblock body%}
         {% block footer %}
-            <div class="container">
+
                 <div class="footer" id="footer">
-                    <p class="text-muted" style="text-align: left;"><a href="{{ path('sonata_admin_redirect') }}">CarWest.by</a> © 2012-2014 {{ block('title') }}</p>
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-8 col-lg-8">
+                            <p class="text-muted" style="text-align: left;"><a href="{{ path('sonata_admin_redirect') }}">CarWest.by</a> © 2012-2014 {{ block('title') }}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            {% include('yandex.metrika.informer.html.twig') %}
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endblock footer %}
