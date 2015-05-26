@@ -19,7 +19,7 @@ $this
 
 protected function execute(InputInterface $input, OutputInterface $output)
 {
-    shell_exec('php55 git pull origin develop');
+    shell_exec('git pull origin develop');
     shell_exec('php55 app/console doctrine:schema:update --force');
     shell_exec('php55 app/console cache:clear --env=prod');
     shell_exec('php55 app/console ps:start');
