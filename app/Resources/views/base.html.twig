@@ -32,19 +32,15 @@
         </div>
         {% block body %}{% endblock body%}
         {% block footer %}
-
+        <div class="container">
                 <div class="footer" id="footer">
-                    <div class="container">
                     <div class="row">
-                        <div class="col-sm-12 col-md-8 col-lg-8">
-                            <p class="text-muted" style="text-align: left;"><a href="{{ path('sonata_admin_redirect') }}">CarWest.by</a> © 2012-2014 {{ block('title') }}</p>
-                        </div>
-                        <div class="col-sm-12 col-md-4 col-lg-4">
-                            {% include('yandex.metrika.informer.html.twig') %}
-                        </div>
+                        <p class="text-muted" style="text-align: left;"><a href="{{ path('sonata_admin_redirect') }}">CarWest.by</a> © 2012-2014 {{ block('title') }}</p>
+                        <p>Частное предприятие «Карвест»<br/>УНП 191312718<br/>ОКПО 379088755000<br/>р/с 3012046520019 в ОАО "Банк Москва-Минск" г. Минск<br/>код 153001272</p>
+                        <p>{% include('yandex.metrika.informer.html.twig') %}</p>
                     </div>
                 </div>
-            </div>
+        </div>
         {% endblock footer %}
         {% block javascripts %}
             <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/jquery-2.1.4.min.js') }}"></script>

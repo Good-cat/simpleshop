@@ -22,7 +22,9 @@
                 <h2>Телефоны:</h2>
                 {{ contacts.getPhones()|raw() }}
                 <h2>Электронная почта:<h2>
-                        {{ contacts.getEmail()|raw() }}
+                {{ contacts.getEmail()|raw() }}
+                <h2>Реквизиты:<h2>
+                {{ contacts.getEssential()|raw() }}
             </div>
             <div class="col-lg-7 col-md-7 col-sm-7 col-xl-7 ">
                 <h2>Карта:</h2>

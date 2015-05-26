@@ -67,6 +67,11 @@ class Contacts {
     private $junctionSchema;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $essential;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $updateAt;
@@ -338,5 +343,28 @@ class Contacts {
     public function getJunctionSchema()
     {
         return $this->junctionSchema;
+    }
+
+    /**
+     * Set essential
+     *
+     * @param string $essential
+     * @return Contacts
+     */
+    public function setEssential($essential)
+    {
+        $this->essential = $essential;
+
+        return $this;
+    }
+
+    /**
+     * Get essential
+     *
+     * @return string 
+     */
+    public function getEssential()
+    {
+        return $this->essential;
     }
 }

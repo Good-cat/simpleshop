@@ -28,6 +28,7 @@ class ContactsAdmin extends Admin{
                     ->add('phones', null, array('label' => 'Телефоны', 'attr'=>array('class' => 'tinymce')))
                     ->add('email', null, array('label' => 'Электронная почта', 'attr'=>array('class' => 'tinymce')))
                     ->add('skype', null, array('label' => 'Скайп', 'attr'=>array('class' => 'tinymce')))
+                    ->add('essential', null, array('label' => 'Реквизиты', 'attr'=>array('class' => 'tinymce')))
                 ->end()
             ->end()
             ->tab('Точка на карте')
