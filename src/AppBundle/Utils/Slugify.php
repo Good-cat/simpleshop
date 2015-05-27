@@ -11,7 +11,9 @@ class Slugify {
             "," => "",
             ":" => "",
             ";" => "",
-            "." => ""
+            "." => "",
+            "(" => "",
+            ")" => ""
         )));
     }
     private static function strtolower_utf8($string){
