@@ -1,4 +1,7 @@
 {% extends '::base.html.twig' %}
+{% block title %}
+    {{ serviceGroup.name }}. Ремонт электрооборудования в Минске.
+{% endblock title %}
 {% block breadcrumbs %}
     <a href="{{ path('homepage') }}">Главная</a> /
     {{ serviceGroup.name }}
@@ -6,7 +9,7 @@
 {% block body %}
     <div class="container">
         <h1>
-            {{ serviceGroup.name }}
+            {{ block('title') }}
         </h1>
         <div class="row">
             {% if articles %}
