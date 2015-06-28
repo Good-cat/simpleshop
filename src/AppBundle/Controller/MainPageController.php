@@ -32,9 +32,15 @@ class MainPageController extends Controller
                 5
             );
 
+        $serviceGroups = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:ServiceGroup')
+            ->findByVisible(1);
+
         return $this->render('mainpage/index.html.twig', array(
             'mainpage' => $mainPage,
-            'articles' => $articles
+            'articles' => $articles,
+            'serviceGroups' => $serviceGroups
         ));
     }
 

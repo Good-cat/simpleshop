@@ -52,6 +52,9 @@
                 {% if mainpage.hasArticles %}
                     {% include '_articles.html.twig' with {'title': 'НОВЫЕ СТАТЬИ'}  %}
                 {% endif %}
+                {% if serviceGroups %}
+                    {% include '_services.html.twig' with {'title': 'ВСЕ УСЛУГИ'}  %}
+                {% endif %}
             </div>
             {% endif %}
         </div>
