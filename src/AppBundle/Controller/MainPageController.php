@@ -64,11 +64,11 @@ class MainPageController extends Controller
         $mainPage->setContent("Содержание главной страницы (можно добавлять картинки)");
         $mainPage->setNews(true);
         $mainPage->setArticles(true);
-        $mainPage->setContacts("Контакты, отображаемые на главной странице");
+//        $mainPage->setContacts("Контакты, отображаемые на главной странице");
         $mainPage->setFooter("Текст футера (кроме постоянных значений)");
-        $mainPage->setHeader("Текст шапки (кроме постоянных значений)");
-        $mainPage->setKeywords("");
-        $mainPage->setDescription("");
+//        $mainPage->setHeader("Текст шапки (кроме постоянных значений)");
+//        $mainPage->setKeywords("");
+//        $mainPage->setDescription("");
         $mainPage->setActions(true);
 
         $em = $this->getDoctrine()->getManager();
