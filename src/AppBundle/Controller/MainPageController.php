@@ -37,6 +37,9 @@ class MainPageController extends Controller
             ->getRepository('AppBundle:ServiceGroup')
             ->findByVisible(1);
 
+//        $callme = $this->get('callme');
+//        $callme->send($this->get('mailer'), 'Mike', '12345678', 'sdf');
+
         return $this->render('mainpage/index.html.twig', array(
             'mainpage' => $mainPage,
             'articles' => $articles,

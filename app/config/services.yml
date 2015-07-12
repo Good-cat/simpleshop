@@ -9,3 +9,6 @@ services:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
   pagination:
     class: AppBundle\Utils\Pagination
+
+  callme:
+    class: AppBundle\Utils\CallMe
