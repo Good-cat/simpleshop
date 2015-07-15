@@ -30,8 +30,21 @@
                 {% block breadcrumbs %}{% endblock breadcrumbs %}
             </div>
         </div>
-        <div class="co"
-        {% block body %}{% endblock body%}
+        {% block body %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-lg-8">
+                    {% block content%}{% endblock content %}
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div id="b_u">
+                        <p style="color:#ececec;font-size:20px;font-weight:700;border-bottom:1px solid #494949;height: 40px;">ОБРАТНЫЙ ЗВОНОК:</p>
+                    </div>
+                    {% block side %}{% endblock side %}
+                </div>
+            </div>
+        </div>
+        {% endblock body%}
 
         {% block footer %}
         <div class="container">

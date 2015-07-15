@@ -8,58 +8,51 @@
 
 {% block breadcrumbs %}Главная{% endblock breadcrumbs %}
 
-{% block body %}
-    <div class="container">
+{% block content %}
+
         <div class="row">
-                {% if hasColumn %}
-                    <div class="col-sm-12 col-md-8 col-lg-8">
-                {% else %}
-                    <div>
-                {% endif %}
                 <div>
                     {{ mainpage.getContent|raw() }}
                 </div>
-            </div>
-            {% if hasColumn %}
-            <div class="col-sm-12 col-md-4 col-lg-4">
-                {% if mainpage.hasActions %}
-                    <br/>
-                    <div id="b_u">
-                        <p style="color:#ececec;font-size:20px;font-weight:700;border-bottom:1px solid #494949;height: 40px;">АКЦИИ:</p>
-                        <p style="color:#afaeae;">Компьютерная диагностика</p>
-                        <p style="color:#afaeae;">Ремонт электрооборудования</p>
-                        <p style="color:#afaeae;">Установка доп. оборудования</p>
-                        <p style="color:#afaeae;">Помощь в приобретении запчастей</p>
-                        <p style="color:#afaeae;">Изготовление чип-ключей</p>
-                        <p style="color:#afaeae;">Консультации</p>
-                    </div>
-                    <br/>
-                {% endif %}
-
-                {% if mainpage.hasNews %}
-                    <div id="b_u">
-                        <p style="color:#ececec;font-size:20px;font-weight:700;border-bottom:1px solid #494949;height: 40px;">НОВОСТИ:</p>
-                        <p style="color:#afaeae;">Компьютерная диагностика</p>
-                        <p style="color:#afaeae;">Ремонт электрооборудования</p>
-                        <p style="color:#afaeae;">Установка доп. оборудования</p>
-                        <p style="color:#afaeae;">Помощь в приобретении запчастей</p>
-                        <p style="color:#afaeae;">Изготовление чип-ключей</p>
-                        <p style="color:#afaeae;">Консультации</p>
-                    </div>
-                    <br/>
-                {% endif %}
-
-                {% if mainpage.hasArticles %}
-                    {% include '_articles.html.twig' with {'title': 'НОВЫЕ СТАТЬИ'}  %}
-                {% endif %}
-                {% if serviceGroups %}
-                    {% include '_services.html.twig' with {'title': 'ВСЕ УСЛУГИ'}  %}
-                {% endif %}
-            </div>
-            {% endif %}
         </div>
-    </div>
 
 
 
-{% endblock %}
+{% endblock content%}
+{% block side %}
+            {% if mainpage.hasActions %}
+                <br/>
+                <div id="b_u">
+                    <p style="color:#ececec;font-size:20px;font-weight:700;border-bottom:1px solid #494949;height: 40px;">АКЦИИ:</p>
+                    <p style="color:#afaeae;">Компьютерная диагностика</p>
+                    <p style="color:#afaeae;">Ремонт электрооборудования</p>
+                    <p style="color:#afaeae;">Установка доп. оборудования</p>
+                    <p style="color:#afaeae;">Помощь в приобретении запчастей</p>
+                    <p style="color:#afaeae;">Изготовление чип-ключей</p>
+                    <p style="color:#afaeae;">Консультации</p>
+                </div>
+                <br/>
+            {% endif %}
+
+            {% if mainpage.hasNews %}
+                <br/>
+                <div id="b_u">
+                    <p style="color:#ececec;font-size:20px;font-weight:700;border-bottom:1px solid #494949;height: 40px;">НОВОСТИ:</p>
+                    <p style="color:#afaeae;">Компьютерная диагностика</p>
+                    <p style="color:#afaeae;">Ремонт электрооборудования</p>
+                    <p style="color:#afaeae;">Установка доп. оборудования</p>
+                    <p style="color:#afaeae;">Помощь в приобретении запчастей</p>
+                    <p style="color:#afaeae;">Изготовление чип-ключей</p>
+                    <p style="color:#afaeae;">Консультации</p>
+                </div>
+                <br/>
+            {% endif %}
+
+            {% if mainpage.hasArticles %}
+                <br/>
+                {% include '_articles.html.twig' with {'title': 'НОВЫЕ СТАТЬИ'}  %}
+            {% endif %}
+            {% if serviceGroups %}
+                {% include '_services.html.twig' with {'title': 'ВСЕ УСЛУГИ'}  %}
+            {% endif %}
+{% endblock side %}
