@@ -34,11 +34,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-8 col-lg-8">
-                    {% block content%}{% endblock content %}
+                    {% block content%}{% endblock content %}<div id="results"></div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4">
                     <div id="b_u">
                         <p style="color:#ececec;font-size:20px;font-weight:700;border-bottom:1px solid #494949;height: 40px;">ОБРАТНЫЙ ЗВОНОК:</p>
+
+                        <form role="form" id="call_me_form" method="post" action="javascript:void(0);" onsubmit="ajax()">
+                            <div class="form-group">
+                                <label for="exampleInputName">Имя</label>
+                                <input class="form-control" id="exampleInputName" placeholder="Как к Вам обращаться (обязательно)" required="Как к Вам обращаться?">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPhone">Телефон</label>
+                                <input class="form-control" id="exampleInputPhone" placeholder="Номер с кодом (обязательно)" required="Укажите, пожалуйста, номер телефона с кодом оператора">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPhone">Сообщение</label>
+                                <textarea class="form-control" id="exampleInputPhone" placeholder="Сообщение по Вашему желанию..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-warning">Заказать обратный звонок</button>
+                        </form>
+
                     </div>
                     {% block side %}{% endblock side %}
                 </div>
@@ -61,6 +78,7 @@
             <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/jquery-2.1.4.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/bootstrap.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/bootstrap-modal.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/base.js') }}"></script>
             {% include('yandex.metrika.counter.html.twig') %}
         {% endblock %}
     </body>

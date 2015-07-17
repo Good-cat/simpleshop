@@ -9,15 +9,9 @@
 {% block breadcrumbs %}Главная{% endblock breadcrumbs %}
 
 {% block content %}
-
-        <div class="row">
-                <div>
-                    {{ mainpage.getContent|raw() }}
-                </div>
-        </div>
-
-
-
+    <div>
+        {{ mainpage.getContent|raw() }}
+    </div>
 {% endblock content%}
 {% block side %}
             {% if mainpage.hasActions %}

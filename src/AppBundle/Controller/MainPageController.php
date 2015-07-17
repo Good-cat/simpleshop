@@ -6,6 +6,7 @@ use AppBundle\Entity\MainPage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class MainPageController extends Controller
 {
@@ -86,5 +87,15 @@ class MainPageController extends Controller
         $em->flush();
 
         return $mainPage;
+    }
+
+    /**
+     * @Route("/callme", name="callme")
+     */
+    public function callMeAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            return new Response($_POST['name']);
+        }
     }
 }
