@@ -2,7 +2,7 @@ $(document).ready(function(){
         $('body').on('submit', 'form[name=call_me_form]', function(){
             $.ajax({
                 type: "POST",
-                url: "/app_dev.php/callme",
+                url: "/callme",
                 data: $(this).serialize(),
                 success: function(data) {
                     $("#callme_results").html(data);
