@@ -5,8 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\MainPage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+
 
 class MainPageController extends Controller
 {
@@ -40,6 +39,8 @@ class MainPageController extends Controller
 
 //        $callme = $this->get('callme');
 //        $callme->send($this->get('mailer'), 'Mike', '12345678', 'sdf');
+
+
 
         return $this->render('mainpage/index.html.twig', array(
             'mainpage' => $mainPage,
@@ -89,13 +90,5 @@ class MainPageController extends Controller
         return $mainPage;
     }
 
-    /**
-     * @Route("/callme", name="callme")
-     */
-    public function callMeAction(Request $request)
-    {
-        if ($request->isXmlHttpRequest()) {
-            return new Response($_POST['name']);
-        }
-    }
+
 }
