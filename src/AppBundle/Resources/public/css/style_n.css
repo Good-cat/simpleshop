@@ -677,3 +677,7 @@ ul, p{
     /*background-color: lightgoldenrodyellow;*/
     color: red;
 }
+
+textarea {
+    resize: vertical;
+}
