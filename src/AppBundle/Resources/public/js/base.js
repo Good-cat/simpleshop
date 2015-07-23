@@ -5,7 +5,7 @@ $(document).ready(function(){
                 url: "/callme",
                 data: $(this).serialize(),
                 success: function(data) {
-                    $("#callme_results").html(data);
+                    alert(data);
                 },
                 error:  function(xhr, str){
                     alert("Возникла ошибка!");
