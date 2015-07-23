@@ -30,8 +30,8 @@ class BaseController extends Controller
                 $name = $callMeForm->get('name')->getData();
                 $phone = $callMeForm->get('phone')->getData();
                 $message = $callMeForm->get('message')->getData() ? : "Сообщение отсутствует";
-                $callme = $this->get('callme');
-                if ($callme->send($this->get('mailer'), $name, $phone, $message)) {
+                $callme = $this->get($this->container->getParameter('call_me_service'));
+                if ($callme->send($name, $phone, $message)) {
                     return new Response('Данные успешно отправлены, наш менеджер перезвонит Вам в ближайшее время.');
                 } else {
                     return new Response('Ошибка при отправке данных, проверьте соединение с Интернетом или повторите попытку позже.');

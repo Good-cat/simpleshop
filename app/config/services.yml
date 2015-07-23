@@ -10,5 +10,9 @@ services:
   pagination:
     class: AppBundle\Utils\Pagination
 
-  callme:
-    class: AppBundle\Utils\CallMe
+  callme_swiftmailer:
+    class: AppBundle\Utils\CallMeSwiftMailer
+    arguments: ['@mailer']
+
+  callme_phpmail:
+    class: AppBundle\Utils\CallMePhpMail
