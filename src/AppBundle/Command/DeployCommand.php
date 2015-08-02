@@ -20,8 +20,10 @@ $this
 protected function execute(InputInterface $input, OutputInterface $output)
 {
     shell_exec('git pull origin develop');
-    shell_exec('php app/console doctrine:schema:update --force');
-    shell_exec('php app/console cache:clear --env=prod');
-    shell_exec('php app/console ps:start');
+
+    shell_exec($this->getContainer()->getParameter('php_console') . ' app/console doctrine:schema:update --force');
+    shell_exec($this->getContainer()->getParameter('php_console') . ' app/console cache:clear --env=prod');
+    shell_exec($this->getContainer()->getParameter('php_console') . ' app/console ps:start');
+
 }
 }

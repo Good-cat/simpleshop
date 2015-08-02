@@ -673,3 +673,11 @@ ul, p{
     color: #979a9a;
 }
 
+#callme_results {
+    /*background-color: lightgoldenrodyellow;*/
+    color: red;
+}
+
+textarea {
+    resize: vertical;
+}

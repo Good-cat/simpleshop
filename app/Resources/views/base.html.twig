@@ -30,7 +30,21 @@
                 {% block breadcrumbs %}{% endblock breadcrumbs %}
             </div>
         </div>
-        {% block body %}{% endblock body%}
+
+        {% block body %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-lg-8">
+                    {% block content%}{% endblock content %}
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    {{ render(controller('AppBundle:Base:getCallMeForm')) }}
+                    {% block side %}{% endblock side %}
+                </div>
+            </div>
+        </div>
+        {% endblock body%}
+
 
         {% block footer %}
         <div class="container">
@@ -47,6 +61,7 @@
             <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/jquery-2.1.4.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/bootstrap.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/vendor/bootstrap-modal.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/base.js') }}"></script>
             {% include('yandex.metrika.counter.html.twig') %}
         {% endblock %}
     </body>
